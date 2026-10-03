@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GM - Recursos Académicos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrap">
+    <header class="nav">
+    <a class="logo" href="#inicio"><span class="logo-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>GM</a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="#recursos">Recursos</a>
+
+      <!-- Contacto con cajita flotante -->
+      <div class="contacto-menu">
+        <a href="#contacto">Contacto</a>
+        <div class="contacto-caja">
+          <a href="mailto:moramaldonado3@gmail.com">
+            <span class="contacto-titulo">Gmail</span>
+            <span class="contacto-dato">garydevelopm@gmail.com</span>
+          </a>
+          <a href="https://wa.me/593XXXXXXXXX" target="_blank" rel="noopener noreferrer">
+            <span class="contacto-titulo">WhatsApp</span>
+            <span class="contacto-dato">+593 XX XXX XXXX</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero" id="inicio">
+      <div class="big" aria-hidden="true">GM</div>
+      <div class="hero-card">
+        <h1>Recursos académicos para estudiar mejor</h1>
+        <p>PDFs descargables, carpetas de Drive y enlaces útiles de diferentes materias, reunidos en un solo lugar.</p>
+      </div>
+    </div>
+
+    <section id="recursos">
+      <h2 class="titulo-seccion">Biblioteca</h2>
+      <p class="sub">Filtra por tema y descarga lo que necesites.</p>
+      <div class="chips" id="filtros" role="group" aria-label="Filtrar por tema"></div>
+      <div class="grid" id="lista"></div>
+    </section>
+
+    <section id="contacto" class="contacto">
+      <div class="cta">
+        <div class="orb" aria-hidden="true"></div>
+        <div>
+          <h2>¿Falta un tema que necesitas?</h2>
+          <p class="cta-nota">Cuéntame qué materia quieres que suba contenido.</p>
+          <textarea id="sugerencia" placeholder="Ej: Cálculo II, Álgebra Lineal, Física Moderna..." maxlength="100" class="textarea-sugerencia"></textarea>
+          <input type="text" id="web" name="web" class="trampa" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button class="btn" id="btn-enviar-sugerencia" type="button">Enviar sugerencia &rarr;</button>
+          <p id="mensaje-sugerencia" class="mensaje-sug" role="status"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 GM · Material de estudio</span>
+</div>
+
+<div class="cookies" id="cookies" role="dialog" aria-label="Aviso de cookies" hidden>
+  <p>Uso una cookie propia para recordar tu elección y el tema que estabas viendo. No uso cookies de rastreo ni de publicidad.</p>
+  <div class="cookies-btns">
+    <button class="btn btn-suave" type="button" id="cookies-no">Rechazar</button>
+    <button class="btn" type="button" id="cookies-si">Aceptar</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
