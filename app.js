@@ -48,6 +48,11 @@ var videos = [
     { titulo: "POO con Python desde cero", canal: "Soy Dalto", tema: "Programacion", id: "HtKqSJX7VoM" },
     { titulo: "Nociones topológicas #1 (Introducción y conceptos básicos)", canal: "Profe Andy Ayluardo", tema: "Calculo", id: "I2j9BLwqiBE" },
     { titulo: "Cálculo de varias variables clase 1: introducción", canal: "Jesus Gregorio Miranda Benavides", tema: "Calculo", id: "hi0yUyv9xY8" }, 
+    { titulo:"Definiciones básicas de Estadística: Población, muestra y diferencia entre parámetro y estadístico (estadistica 1)", canal:"FCNM ESPOL", tema:"Estadistica", id:"Rc3TJHcNSW0" },
+    { titulo:"Clase estadistica 1- Conceptos Básicos y Diagramas", canal:"domenica coello", tema:"Estadistica", id:"1VLgBbeUtQk" },
+    { titulo:"Ayudantias estadistica 1", canal:"Ivis Pérez Fuentes", tema:"Estadistica", id:"YuTZ6jBPgQE" },
+    { titulo:"Mega Ayudantias estadistica 1 - segundo parcial", canal:"Tico Nuñez Gambarrotti", tema:"Estadistica", id:"FBz2S9mLJ_k" },
+    { titulo:"Ayudantía de Estadística 1", canal:"Profe Andy Ayluardo", tema:"Estadistica", id:"hEMsQ2c1r6Q" },
   ];
 
 var cursos = [
