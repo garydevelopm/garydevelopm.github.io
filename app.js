@@ -21,6 +21,21 @@ var recursos = [
     tipo: "Drive", 
     url: "https://drive.google.com/drive/folders/1AiT2JNjb5KD0BTn4wEhjbETxUSVEjKsh?usp=sharing"
   },
+    { 
+    titulo: "Repositorios de examenes para Estadistica I", 
+    desc: "Examenes, talleres, lecciones y ejercicios variados de toda la materia.", 
+    tema: "Estadistica", 
+    tipo: "Drive", 
+    url: "https://drive.google.com/drive/folders/1Z7lU4bLlBvEtPaBZvPJg6cbcqTCZhp64?usp=sharing"
+  },
+  { 
+    titulo: "Guia de estudio para Estadistica I", 
+    desc: "Guía de estudio completa de Estadística I. Resumen de toda la materia, formularios, tips y conceptos clave.",
+    tema: "Estadistica", 
+    tipo: "PDF", 
+    guia: true,
+    url: "pdfs/Guia_Estudio_Estadistica_I.pdf" 
+  },
 ];
 var linkInstagram = "https://www.instagram.com/garydevelop";
 
