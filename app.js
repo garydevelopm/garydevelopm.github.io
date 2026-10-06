@@ -21,7 +21,7 @@ var recursos = [
     tipo: "Drive", 
     url: "https://drive.google.com/drive/folders/1AiT2JNjb5KD0BTn4wEhjbETxUSVEjKsh?usp=sharing"
   },
-    { 
+  { 
     titulo: "Repositorios de examenes para Estadistica I", 
     desc: "Examenes, talleres, lecciones y ejercicios variados de toda la materia.", 
     tema: "Estadistica", 
