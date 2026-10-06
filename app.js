@@ -36,6 +36,21 @@ var recursos = [
     guia: true,
     url: "pdfs/Guia_Estudio_Estadistica_I.pdf" 
   },
+  { 
+    titulo: "Repositorios de examenes para Calculo Vectorial", 
+    desc: "Examenes, talleres, lecciones y ejercicios variados de toda la materia.", 
+    tema: "Calculo Vectorial", 
+    tipo: "Drive", 
+    url: "https://drive.google.com/drive/folders/1qZEa4o02iSnE83H-gejO8_opV97cPCUr?usp=sharing"
+  },
+  { 
+    titulo: "Guia de estudio para Calculo Vectorial", 
+    desc: "Guía de estudio completa de Cálculo Vectorial. Resumen de toda la materia, formularios, tips y conceptos clave.",
+    tema: "Calculo Vectorial", 
+    tipo: "PDF", 
+    guia: true,
+    url: "pdfs/Guia_Estudio_Calculo_Vectorial.pdf" 
+  },
 ];
 var linkInstagram = "https://www.instagram.com/garydevelop";
 
@@ -47,7 +62,7 @@ var videos = [
     { titulo: "Introduccion a numpy y pandas", canal: "Juan Romero", tema: "Programacion", id: "Ft-04pxLhIw" },
     { titulo: "POO con Python desde cero", canal: "Soy Dalto", tema: "Programacion", id: "HtKqSJX7VoM" },
     { titulo: "Nociones topológicas #1 (Introducción y conceptos básicos)", canal: "Profe Andy Ayluardo", tema: "Calculo", id: "I2j9BLwqiBE" },
-    { titulo: "Cálculo de varias variables clase 1: introducción", canal: "Jesus Gregorio Miranda Benavides", tema: "Calculo", id: "hi0yUyv9xY8" }, 
+    { titulo: "Cálculo de varias variables clase 1: introducción", canal: "Jesus Gregorio Miranda Benavides", tema: "Calculo vectorial", id: "hi0yUyv9xY8" }, 
     { titulo:"Definiciones básicas de Estadística: Población, muestra y diferencia entre parámetro y estadístico (estadistica 1)", canal:"FCNM ESPOL", tema:"Estadistica", id:"Rc3TJHcNSW0" },
     { titulo:"Clase estadistica 1- Conceptos Básicos y Diagramas", canal:"domenica coello", tema:"Estadistica", id:"1VLgBbeUtQk" },
     { titulo:"Ayudantias estadistica 1", canal:"Ivis Pérez Fuentes", tema:"Estadistica", id:"YuTZ6jBPgQE" },
