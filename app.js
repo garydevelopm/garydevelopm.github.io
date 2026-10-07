@@ -43,14 +43,7 @@ var recursos = [
     tipo: "Drive", 
     url: "https://drive.google.com/drive/folders/1qZEa4o02iSnE83H-gejO8_opV97cPCUr?usp=sharing"
   },
-  { 
-    titulo: "Guia de estudio para Calculo Vectorial", 
-    desc: "Guía de estudio completa de Cálculo Vectorial. Resumen de toda la materia, formularios, tips y conceptos clave.",
-    tema: "Calculo Vectorial", 
-    tipo: "PDF", 
-    guia: true,
-    url: "pdfs/Guia_Estudio_Calculo_Vectorial.pdf" 
-  },
+ 
 ];
 var linkInstagram = "https://www.instagram.com/garydevelop";
 
