@@ -45,6 +45,7 @@ var recursos = [
   },
   { titulo: "Guia de estudio para Calculo Vectorial", desc: "Guía de estudio completa de CV/CVV. Resumen de toda la materia, formularios, tips y conceptos clave.", tema: "Calculo Vectorial", tipo: "PDF", guia: true, url: "pdfs/Guia_Estudio_Calculo_Vectorial.pdf" },
   { titulo: "Guia de estudio para Fisica Mecanica", desc: "Guía de estudio completa de FM. Resumen de toda la materia, formularios, tips y conceptos clave.", tema: "Fisica Mecanica", tipo: "PDF", guia: true, url: "pdfs/Guia_Estudio_Fisica_Mecanica.pdf" },
+  { titulo: "Guia de estudio para Calculo de una Variable", desc: "Guía de estudio completa de Cálculo de una Variable. Resumen de toda la materia, formularios, tips y conceptos clave.", tema: "Calculo", tipo: "PDF", guia: true, url: "pdfs/Guia_Estudio_Calculo_Una_Variable.pdf" },
 ];
 var linkInstagram = "https://www.instagram.com/garydevelop";
 
