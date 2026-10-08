@@ -2,14 +2,14 @@ var recursos = [
   { 
     titulo: "Repositorios de examenes para FP", 
     desc: "Examenes, talleres, lecciones y ejercicios variados de toda la materia.", 
-    tema: "Programacion", 
+    tema: "Fp", 
     tipo: "Drive", 
     url: "https://drive.google.com/drive/folders/1KEu5DSlKlXquYaRCSiNPzoeQ-RhiVfrt?usp=sharing"
   },
   { 
     titulo: "Guia de estudio para FP", 
     desc: "Guía de estudio completa de FP. Resumen de toda la materia, formularios, tips y conceptos clave.",
-    tema: "Programacion", 
+    tema: "Fp", 
     tipo: "PDF", 
     guia: true,
     url: "pdfs/Guia_Estudio_FP.pdf" 
@@ -49,16 +49,17 @@ var recursos = [
   { titulo: "Guia de estudio para Calculo de una Variable", desc: "Guía de estudio completa de Cálculo de una Variable. Resumen de toda la materia, formularios, tips y conceptos clave.", tema: "Calculo", tipo: "PDF", guia: true, url: "pdfs/Guia_Estudio_Calculo_Una_Variable.pdf" },
   { titulo: "Guia de estudio para Algebra Lineal", desc: "Guía de estudio completa de Álgebra Lineal. Resumen de toda la materia, formularios, tips y conceptos clave.", tema: "Algebra Lineal", tipo: "PDF", guia: true, url: "pdfs/Guia_Estudio_Algebra_Lineal.pdf" },
   { titulo: "Guia de estudio para Ecuaciones Diferenciales", desc: "Guía de estudio completa de Ecuaciones Diferenciales. Resumen de toda la materia, formularios, tips y conceptos clave.", tema: "Ecuaciones Diferenciales", tipo: "PDF", guia: true, url: "pdfs/Guia_Estudio_Ecuaciones_Diferenciales.pdf" },
+  { titulo: "Guia de estudio para POO", desc: "Guía de estudio completa de POO con Java. Resumen de toda la materia, ejemplos de código, tips y conceptos clave.", tema: "Poo", tipo: "PDF", guia: true, url: "pdfs/Guia_Estudio_POO.pdf" },{ titulo: "Guia de estudio para POO", desc: "Guía de estudio completa de Programacion orientada a objetos con Java. Resumen de toda la materia, ejemplos de código, tips y conceptos clave.", tema: "POO", tipo: "PDF", guia: true, url: "pdfs/Guia_Estudio_POO.pdf" },
 ];
 var linkInstagram = "https://www.instagram.com/garydevelop";
 
 var videos = [
-    { titulo: "Python desde cero", canal: "Piogram", tema: "Programacion", id: "DJdBGf7uzg4" },
-    { titulo: "Fundamentos de programacion", canal: "Robespierre Triviño", tema: "Programacion", id: "HlkA0yc2uKo" },
-    { titulo: "Python desde cero", canal: "Soy Dalto", tema: "Programacion", id: "nKPbfIU442g" },
-    { titulo: "Python desde cero para principiantes", canal: "MoureDev by Brais Moure", tema: "Programacion", id: "Kp4Mvapo5kc" },
-    { titulo: "Introduccion a numpy y pandas", canal: "Juan Romero", tema: "Programacion", id: "Ft-04pxLhIw" },
-    { titulo: "POO con Python desde cero", canal: "Soy Dalto", tema: "Programacion", id: "HtKqSJX7VoM" },
+    { titulo: "Python desde cero", canal: "Piogram", tema: "Fp", id: "DJdBGf7uzg4" },
+    { titulo: "Fundamentos de programacion", canal: "Robespierre Triviño", tema: "Fp", id: "HlkA0yc2uKo" },
+    { titulo: "Python desde cero", canal: "Soy Dalto", tema: "Fp", id: "nKPbfIU442g" },
+    { titulo: "Python desde cero para principiantes", canal: "MoureDev by Brais Moure", tema: "Fp", id: "Kp4Mvapo5kc" },
+    { titulo: "Introduccion a numpy y pandas", canal: "Juan Romero", tema: "Fp", id: "Ft-04pxLhIw" },
+    { titulo: "POO con Python desde cero", canal: "Soy Dalto", tema: "Fp", id: "HtKqSJX7VoM" },
     { titulo: "Nociones topológicas #1 (Introducción y conceptos básicos)", canal: "Profe Andy Ayluardo", tema: "Calculo", id: "I2j9BLwqiBE" },
     { titulo: "Cálculo de varias variables clase 1: introducción", canal: "Jesus Gregorio Miranda Benavides", tema: "Calculo vectorial", id: "hi0yUyv9xY8" }, 
     { titulo:"Definiciones básicas de Estadística: Población, muestra y diferencia entre parámetro y estadístico (estadistica 1)", canal:"FCNM ESPOL", tema:"Estadistica", id:"Rc3TJHcNSW0" },
