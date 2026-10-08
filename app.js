@@ -1,5 +1,5 @@
 var recursos = [
-  { 
+ { 
     titulo: "Repositorios de examenes para FP", 
     desc: "Examenes, talleres, lecciones y ejercicios variados de toda la materia.", 
     tema: "Fp", 
@@ -43,84 +43,77 @@ var recursos = [
     tipo: "Drive", 
     url: "https://drive.google.com/drive/folders/1qZEa4o02iSnE83H-gejO8_opV97cPCUr?usp=sharing"
   },
-  { titulo: "Guia de estudio para Calculo Vectorial", 
+  { 
+    titulo: "Guia de estudio para Calculo Vectorial", 
     desc: "Guía de estudio completa de CV/CVV. Resumen de toda la materia, formularios, tips y conceptos clave.", 
     tema: "Calculo Vectorial",
     tipo: "PDF", 
     guia: true, 
-    url: "pdfs/Guia_Estudio_Calculo_Vectorial.pdf" },
-  
-  { titulo: "Guia de estudio para Fisica Mecanica", 
+    url: "pdfs/Guia_Estudio_Calculo_Vectorial.pdf" 
+  }, 
+  {
+    titulo: "Guia de estudio para Fisica Mecanica", 
     desc: "Guía de estudio completa de FM. Resumen de toda la materia, formularios, tips y conceptos clave.", 
     tema: "Fisica Mecanica", 
     tipo: "PDF", 
     guia: true, 
-    url: "pdfs/Guia_Estudio_Fisica_Mecanica.pdf" },
-  
-  { titulo: "Guia de estudio para Calculo de una Variable", 
+    url: "pdfs/Guia_Estudio_Fisica_Mecanica.pdf" 
+  },
+  { 
+    titulo: "Guia de estudio para Calculo de una Variable", 
     desc: "Guía de estudio completa de Cálculo de una Variable. Resumen de toda la materia, formularios, tips y conceptos clave.", 
     tema: "Calculo", 
     tipo: "PDF", 
     guia: true, 
-    url: "pdfs/Guia_Estudio_Calculo_Una_Variable.pdf" },
-  
-  { titulo: "Guia de estudio para Calculo de una Variable", 
-    desc: "Guía de estudio completa de Cálculo de una Variable. Resumen de toda la materia, formularios, tips y conceptos clave.", 
-    tema: "Calculo", 
-    tipo: "PDF", 
-    guia: true, 
-    url: "pdfs/Guia_Estudio_Calculo_Una_Variable.pdf" },
-  
-  { titulo: "Guia de estudio para Algebra Lineal", 
+    url: "pdfs/Guia_Estudio_Calculo_Una_Variable.pdf" 
+  },
+  { 
+    titulo: "Guia de estudio para Algebra Lineal", 
     desc: "Guía de estudio completa de Álgebra Lineal. Resumen de toda la materia, formularios, tips y conceptos clave.", 
     tema: "Algebra Lineal", 
     tipo: "PDF", 
     guia: true, 
-    url: "pdfs/Guia_Estudio_Algebra_Lineal.pdf" },
-  
-  { titulo: "Guia de estudio para Ecuaciones Diferenciales", 
+    url: "pdfs/Guia_Estudio_Algebra_Lineal.pdf" 
+  },
+  { 
+    titulo: "Guia de estudio para Ecuaciones Diferenciales", 
     desc: "Guía de estudio completa de Ecuaciones Diferenciales. Resumen de toda la materia, formularios, tips y conceptos clave.", 
     tema: "Ecuaciones Diferenciales", 
     tipo: "PDF",
     guia: true, 
-    url: "pdfs/Guia_Estudio_Ecuaciones_Diferenciales.pdf" },
-  
-  { titulo: "Guia de estudio para programacion orientada a obejetos/poo", 
+    url: "pdfs/Guia_Estudio_Ecuaciones_Diferenciales.pdf" 
+  },
+  { 
+    titulo: "Guia de estudio para programacion orientada a obejetos/poo", 
     desc: "Guía de estudio completa de Poo con Java. Resumen de toda la materia, ejemplos de código, tips y conceptos clave.", 
     tema: "Poo", 
     tipo: "PDF", 
     guia: true, 
-    url: "pdfs/Guia_Estudio_POO.pdf" },
-  
-  { titulo: "Guia de estudio para POO", 
-    desc: "Guía de estudio completa de Programacion orientada a objetos con Java. Resumen de toda la materia, ejemplos de código, tips y conceptos clave.", 
-    tema: "Poo", 
-    tipo: "PDF", 
-    guia: true, 
-    url: "pdfs/Guia_Estudio_POO.pdf" },
+    url: "pdfs/Guia_Estudio_POO.pdf" 
+  },
   {
-  titulo: "Guia de estudio para Quimica Organica I",
-  desc: "Guía de estudio completa de Química Orgánica I. Resumen de toda la materia, formularios, tips y conceptos clave.",
-  tema: "Quimica Organica",
-  tipo: "PDF",
-  guia: true,
-  url: "pdfs/Guia_Estudio_Quimica_Organica_I.pdf"
-},
-{
-  titulo: "Guia de estudio para Ecuaciones Diferenciales y Algebra Lineal",
-  desc: "Guía de estudio completa de Ecuaciones Diferenciales y Álgebra Lineal. Resumen de toda la materia, formularios, tips y conceptos clave.",
-  tema: "Edal",
-  tipo: "PDF",
-  guia: true,
-  url: "pdfs/Guia_Estudio_EDO_Algebra_Lineal.pdf"
-},
-{
-  titulo: "Guia de estudio para Fisica Electronica y Optica",
-  desc: "Guía de estudio completa de Física: Electrónica y Óptica. Resumen de toda la materia, formularios, tips y conceptos clave.",
-  tema: "Fisica Electronica y Optica",
-  tipo: "PDF",
-  guia: true,
-  url: "pdfs/Guia_Estudio_Fisica_Electronica_Optica.pdf"
+    titulo: "Guia de estudio para Quimica Organica I",
+    desc: "Guía de estudio completa de Química Orgánica I. Resumen de toda la materia, formularios, tips y conceptos clave.",
+    tema: "Quimica Organica",
+    tipo: "PDF",
+    guia: true,
+    url: "pdfs/Guia_Estudio_Quimica_Organica_I.pdf"
+  },
+  {
+    titulo: "Guia de estudio para Ecuaciones Diferenciales y Algebra Lineal",
+    desc: "Guía de estudio completa de Ecuaciones Diferenciales y Álgebra Lineal. Resumen de toda la materia, formularios, tips y conceptos clave.",
+    tema: "Edal",
+    tipo: "PDF",
+    guia: true,
+    url: "pdfs/Guia_Estudio_EDO_Algebra_Lineal.pdf"
+  },
+  {
+    titulo: "Guia de estudio para Fisica Electronica y Optica",
+    desc: "Guía de estudio completa de Física: Electrónica y Óptica. Resumen de toda la materia, formularios, tips y conceptos clave.",
+    tema: "Fisica Electronica y Optica",
+    tipo: "PDF",
+    guia: true,
+    url: "pdfs/Guia_Estudio_Fisica_Electronica_Optica.pdf"
 },
 ];
 var linkInstagram = "https://www.instagram.com/garydevelop";
