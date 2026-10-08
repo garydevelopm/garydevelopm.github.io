@@ -114,7 +114,14 @@ var recursos = [
     tipo: "PDF",
     guia: true,
     url: "pdfs/Guia_Estudio_Fisica_Electronica_Optica.pdf"
-},
+  },
+  {
+    titulo: "Drive de Fisica Mecanica",
+    desc: "Carpeta de Drive con material de Física Mecánica (ESPOL). Descarga lo que necesites.",
+    tema: "Fisica Mecanica",
+    tipo: "Drive",
+    url: "https://drive.google.com/drive/folders/1-UY2hHUIj12ffsVdO0LAKVWYk459na2Y?usp=drive_link"
+  },
 ];
 var linkInstagram = "https://www.instagram.com/garydevelop";
 
