@@ -129,15 +129,39 @@ var recursos = [
     tipo: "PDF",
     guia: true,
     url: "pdfs/Guia_Estudio_Matematicas_Discretas.pdf"
-},
-{
+  },
+  {
     titulo: "Guia de estudio para Matematicas Financieras",
     desc: "Guía de estudio completa de Matemáticas Financieras. Resumen de toda la materia, formularios, tips y conceptos clave.",
     tema: "Matematicas Financieras",
     tipo: "PDF",
     guia: true,
     url: "pdfs/Guia_Estudio_Matematicas_Financieras.pdf"
-},
+  },
+  {
+    titulo: "Guia de estudio para Fisiologia Vegetal",
+    desc: "Guía de estudio completa de Fisiología Vegetal. Resumen de toda la materia, formularios, tips y conceptos clave.",
+    tema: "Fisiologia Vegetal",
+    tipo: "PDF",
+    guia: true,
+    url: "pdfs/Guia_Estudio_Fisiologia_Vegetal.pdf"
+  },
+  {
+    titulo: "Guia de estudio para Economia Matematica",
+    desc: "Guía de estudio completa de Economía Matemática. Resumen de toda la materia, formularios, tips y conceptos clave.",
+    tema: "Economia Matematica",
+    tipo: "PDF",
+    guia: true,
+    url: "pdfs/Guia_Estudio_Economia_Matematica.pdf"
+  },
+  {
+    titulo: "Guia de estudio para Fisica Electricidad y Magnetismo",
+    desc: "Guía de estudio completa de Física: Electricidad y Magnetismo. Resumen de toda la materia, formularios, tips y conceptos clave.",
+    tema: "Fisica Electricidad y Magnetismo",
+    tipo: "PDF",
+    guia: true,
+    url: "pdfs/Guia_Estudio_Fisica_Electricidad_Magnetismo.pdf"
+  },
 ];
 var linkInstagram = "https://www.instagram.com/garydevelop";
 
