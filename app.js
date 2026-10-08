@@ -117,7 +117,7 @@ var recursos = [
   },
   {
     titulo: "Drive de Fisica Mecanica",
-    desc: "Carpeta de Drive con material de Física Mecánica (ESPOL). Descarga lo que necesites.",
+    desc: "Examenes, talleres, lecciones y ejercicios variados de toda la materia.",
     tema: "Fisica Mecanica",
     tipo: "Drive",
     url: "https://drive.google.com/drive/folders/1-UY2hHUIj12ffsVdO0LAKVWYk459na2Y?usp=drive_link"
