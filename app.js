@@ -122,6 +122,22 @@ var recursos = [
     tipo: "Drive",
     url: "https://drive.google.com/drive/folders/1-UY2hHUIj12ffsVdO0LAKVWYk459na2Y?usp=drive_link"
   },
+  {
+    titulo: "Guia de estudio para Matematicas Discretas",
+    desc: "Guía de estudio completa de Matemáticas Discretas. Resumen de toda la materia, formularios, tips y conceptos clave.",
+    tema: "Matematicas Discretas",
+    tipo: "PDF",
+    guia: true,
+    url: "pdfs/Guia_Estudio_Matematicas_Discretas.pdf"
+},
+{
+    titulo: "Guia de estudio para Matematicas Financieras",
+    desc: "Guía de estudio completa de Matemáticas Financieras. Resumen de toda la materia, formularios, tips y conceptos clave.",
+    tema: "Matematicas Financieras",
+    tipo: "PDF",
+    guia: true,
+    url: "pdfs/Guia_Estudio_Matematicas_Financieras.pdf"
+},
 ];
 var linkInstagram = "https://www.instagram.com/garydevelop";
 
