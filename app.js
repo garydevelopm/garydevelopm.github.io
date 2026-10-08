@@ -110,7 +110,7 @@ var recursos = [
   {
     titulo: "Guia de estudio para Fisica Electronica y Optica",
     desc: "Guía de estudio completa de Física: Electrónica y Óptica. Resumen de toda la materia, formularios, tips y conceptos clave.",
-    tema: "Fisica Electronica y Optica",
+    tema: "Fisica Electronica y Optica", 
     tipo: "PDF",
     guia: true,
     url: "pdfs/Guia_Estudio_Fisica_Electronica_Optica.pdf"
