@@ -162,6 +162,14 @@ var recursos = [
     guia: true,
     url: "pdfs/Guia_Estudio_Fisica_Electricidad_Magnetismo.pdf"
   },
+  {
+    titulo: "Guia de estudio para Mecanica de Solidos",
+    desc: "Guía de estudio completa de Mecánica de Sólidos. Resumen de toda la materia, formularios, tips y conceptos clave.",
+    tema: "Mecanica de Solidos",
+    tipo: "PDF",
+    guia: true,
+    url: "pdfs/Guia_Estudio_Mecanica_de_Solidos.pdf"
+  },
 ];
 var linkInstagram = "https://www.instagram.com/garydevelop";
 
