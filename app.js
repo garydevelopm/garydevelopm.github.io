@@ -98,6 +98,30 @@ var recursos = [
     tipo: "PDF", 
     guia: true, 
     url: "pdfs/Guia_Estudio_POO.pdf" },
+  {
+  titulo: "Guia de estudio para Quimica Organica I",
+  desc: "Guía de estudio completa de Química Orgánica I. Resumen de toda la materia, formularios, tips y conceptos clave.",
+  tema: "Quimica Organica",
+  tipo: "PDF",
+  guia: true,
+  url: "pdfs/Guia_Estudio_Quimica_Organica_I.pdf"
+},
+{
+  titulo: "Guia de estudio para Ecuaciones Diferenciales y Algebra Lineal",
+  desc: "Guía de estudio completa de Ecuaciones Diferenciales y Álgebra Lineal. Resumen de toda la materia, formularios, tips y conceptos clave.",
+  tema: "Edal",
+  tipo: "PDF",
+  guia: true,
+  url: "pdfs/Guia_Estudio_EDO_Algebra_Lineal.pdf"
+},
+{
+  titulo: "Guia de estudio para Fisica Electronica y Optica",
+  desc: "Guía de estudio completa de Física: Electrónica y Óptica. Resumen de toda la materia, formularios, tips y conceptos clave.",
+  tema: "Fisica Electronica y Optica",
+  tipo: "PDF",
+  guia: true,
+  url: "pdfs/Guia_Estudio_Fisica_Electronica_Optica.pdf"
+},
 ];
 var linkInstagram = "https://www.instagram.com/garydevelop";
 
