@@ -283,13 +283,14 @@ document.getElementById("cookies-no").addEventListener("click", function () { el
 if (leerCookie("gm_consent") === "") cajaCookies.hidden = false;
 
 var secciones = [
-  { id: "materias",  nombre: "Materias",  dato: "Guías en PDF por materia", grupo: "Estudio", menu: "recursos" },
-  { id: "drive",     nombre: "Drive",     dato: "Exámenes y ejercicios",    grupo: "Estudio", menu: "recursos" },
-  { id: "videos",    nombre: "Videos",    dato: "Clases en video",          grupo: "Estudio", menu: "recursos" },
-  { id: "cursos",    nombre: "Cursos",    dato: "Cursos completos",         grupo: "Estudio", menu: "recursos" },
-  { id: "playlists", nombre: "Playlists", dato: "Música para tu estudio",   grupo: "Extras", menu: "recursos" },
-  { id: "noticias",  nombre: "Noticias",  dato: "Información del mundo STEM", grupo: "Extras", menu: "recursos" },
-  { id: "eventos",   nombre: "Eventos próximos", dato: "Eventos de ESPOL y nacionales", grupo: "Extras", menu: "recursos" },
+  { id: "inicio",    nombre: "Inicio" },
+  { id: "materias",  nombre: "Materias",  dato: "Guías en PDF por materia",  grupo: "Del semestre", menu: "recursos" },
+  { id: "drive",     nombre: "Drive",     dato: "Exámenes y ejercicios",     grupo: "Del semestre", menu: "recursos" },
+  { id: "videos",    nombre: "Videos",    dato: "Clases en video",           grupo: "Del semestre", menu: "recursos" },
+  { id: "cursos",    nombre: "Cursos" },
+  { id: "noticias",  nombre: "Noticias" },
+  { id: "eventos",   nombre: "Eventos próximos" },
+  { id: "playlists", nombre: "Playlists" },
   { id: "adm-materias", nombre: "Materias", nombrePie: "Admisiones · Materias", dato: "Guías en PDF del pre",          grupo: "Solo para el pre de ESPOL", menu: "admisiones", sinPestana: true },
   { id: "adm-drive",    nombre: "Drive",    nombrePie: "Admisiones · Drive",    dato: "Exámenes y ejercicios del pre", grupo: "Solo para el pre de ESPOL", menu: "admisiones", sinPestana: true },
   { id: "adm-videos",   nombre: "Videos",   nombrePie: "Admisiones · Videos",   dato: "Clases para prepararte",        grupo: "Solo para el pre de ESPOL", menu: "admisiones", sinPestana: true }
@@ -937,6 +938,108 @@ crearVistaVideos("adm-videos", videosAdm, "Buscar video o materia del pre…");
   vistas.eventos = { render: render };
 })();
 
+var ILU = {
+  cursos: '<svg class="ilu" viewBox="0 0 200 120" aria-hidden="true"><rect class="l fw" x="38" y="22" width="124" height="74" rx="9"></rect><rect class="fa" x="46" y="30" width="108" height="58" rx="5"></rect><circle class="fm" cx="100" cy="59" r="15"></circle><path d="M95 51l14 8-14 8z" fill="#2a1a08"></path><path class="l" d="M20 104h160"></path><rect x="62" y="108" width="76" height="5" rx="2.5" fill="rgba(255,255,255,.18)"></rect><rect class="fg" x="62" y="108" width="46" height="5" rx="2.5"></rect><path class="l fv" d="M152 8l28 11-28 11-28-11z"></path><path class="l" d="M180 19v13"></path><circle class="fm" cx="180" cy="35" r="3.2"></circle></svg>',
+  noticias: '<svg class="ilu" viewBox="0 0 200 120" aria-hidden="true"><rect class="l fw" x="44" y="12" width="112" height="98" rx="9"></rect><rect class="fa" x="54" y="22" width="92" height="12" rx="3"></rect><rect class="fv" x="54" y="43" width="40" height="30" rx="4"></rect><circle class="fm" cx="67" cy="53" r="4.6"></circle><path class="l" d="M54 70l13-10 8 6 9-9 10 13"></path><path class="l" d="M102 48h44M102 57h44M102 66h32"></path><path class="l" d="M54 84h92M54 94h66"></path><circle class="fg" cx="154" cy="17" r="6.5"></circle><circle class="l" cx="154" cy="17" r="12" opacity=".5"></circle></svg>',
+  eventos: '<svg class="ilu" viewBox="0 0 200 120" aria-hidden="true"><rect class="l fw" x="38" y="22" width="124" height="88" rx="11"></rect><path class="fv" d="M38 33a11 11 0 0 1 11-11h102a11 11 0 0 1 11 11v14H38z"></path><path class="l" d="M68 14v16M132 14v16"></path><g class="fl"><rect x="54" y="58" width="14" height="10" rx="3"></rect><rect x="76" y="58" width="14" height="10" rx="3"></rect><rect x="120" y="58" width="14" height="10" rx="3"></rect><rect x="142" y="58" width="10" height="10" rx="3"></rect><rect x="54" y="76" width="14" height="10" rx="3"></rect><rect x="76" y="76" width="14" height="10" rx="3"></rect><rect x="120" y="76" width="14" height="10" rx="3"></rect><rect x="54" y="94" width="14" height="8" rx="3"></rect></g><circle class="fm" cx="104" cy="75" r="11"></circle><path d="M104 68l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.5 5-.7z" fill="#2a1a08"></path><path class="l fg" d="M164 8c-8 0-14 6-14 13 0 9 14 19 14 19s14-10 14-19c0-7-6-13-14-13z"></path><circle cx="164" cy="21" r="4.5" fill="#06210f"></circle></svg>',
+  playlists: '<svg class="ilu" viewBox="0 0 200 120" aria-hidden="true"><path class="l" d="M52 78V64a48 48 0 0 1 96 0v14"></path><rect class="l fv" x="40" y="70" width="22" height="36" rx="10"></rect><rect class="l fv" x="138" y="70" width="22" height="36" rx="10"></rect><rect class="eq-b fm" x="76" y="74" width="7" height="26" rx="3.5"></rect><rect class="eq-b fa" x="87" y="62" width="7" height="38" rx="3.5"></rect><rect class="eq-b fg" x="98" y="50" width="7" height="50" rx="3.5"></rect><rect class="eq-b fa" x="109" y="66" width="7" height="34" rx="3.5"></rect><rect class="eq-b fm" x="120" y="78" width="7" height="22" rx="3.5"></rect><path class="l" d="M168 22v22"></path><circle class="fm" cx="162" cy="46" r="6"></circle><path class="l" d="M168 22l12 4"></path></svg>'
+};
+function atajosExtras() {
+  var hoy = new Date(); hoy.setHours(0, 0, 0, 0);
+  var proximos = eventos.filter(function (e) {
+    return fechaValida(e.fecha) ? aFecha(e.fecha).getTime() >= hoy.getTime() : e.abierto === true;
+  }).length;
+  return [
+    { id: "cursos",    titulo: "Cursos",   texto: "Cursos completos para aprender una herramienta o una materia de principio a fin.", n: cursos.length,   unidad: "cursos",   color: 265, ilu: ILU.cursos },
+    { id: "noticias",  titulo: "Noticias", texto: "Lo nuevo del mundo tech y STEM, con link a la fuente original.",                    n: noticias.length, unidad: "noticias", color: 210, ilu: ILU.noticias },
+    { id: "eventos",   titulo: "Eventos próximos", texto: "Charlas, talleres y hackatones de ESPOL y de todo el país.",                n: proximos,        unidad: "próximos", color: 28,  ilu: ILU.eventos },
+    { id: "playlists", titulo: "Playlists", texto: "Música para cada momento de estudio: concentrarte, relajarte o darte energía.",     n: playlists.length, unidad: "playlists", color: 325, ilu: ILU.playlists }
+  ];
+}
+
+function itemsNuevos() {
+  var out = [];
+  function sumar(lista, ir, rotulo) {
+    lista.forEach(function (x) {
+      if (esNuevo(x.fecha)) out.push({ titulo: x.titulo, rotulo: rotulo(x), fecha: x.fecha, ir: ir(x) });
+    });
+  }
+  sumar(recursos, function (r) { return String(r.tipo).toLowerCase() === "pdf" ? "materias" : "drive"; }, function (r) { return textoSeguro(r.tipo, 12) + " · " + textoSeguro(r.tema, 20); });
+  sumar(videos, function () { return "videos"; }, function (v) { return "Video · " + v.tema; });
+  sumar(cursos, function () { return "cursos"; }, function (c) { return "Curso · " + c.tema; });
+  sumar(playlists, function () { return "playlists"; }, function (p) { return "Playlist · " + p.categoria; });
+  sumar(noticias, function () { return "noticias"; }, function (n) { return "Noticia · " + n.tema; });
+  sumar(admisiones, function (r) { return String(r.tipo).toLowerCase() === "pdf" ? "adm-materias" : "adm-drive"; }, function (r) { return "Admisiones · " + textoSeguro(r.tipo, 12) + " · " + textoSeguro(r.tema, 20); });
+  sumar(videosAdm, function () { return "adm-videos"; }, function (v) { return "Admisiones · Video · " + v.tema; });
+  return out.sort(function (a, b) { return a.fecha < b.fecha ? 1 : (a.fecha > b.fecha ? -1 : 0); }).slice(0, 6);
+}
+
+var reducidoLobby = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function pintarLobby() {
+  var caja = document.getElementById("lobby-explora");
+  caja.textContent = "";
+  atajosExtras().forEach(function (a) {
+    var t = el("a", "ex");
+    t.href = "#" + a.id; t.setAttribute("data-ir", a.id);
+    var ilu = el("div", "ex-ilu");
+    ilu.style.background = fondoDegradado(a.color);
+    ilu.innerHTML = a.ilu;
+    var cuerpo = el("div", "ex-cuerpo");
+    cuerpo.appendChild(el("h3", "", a.titulo)); cuerpo.appendChild(el("p", "", a.texto));
+    var pie = el("div", "ex-pie");
+    var cuenta = el("span"); cuenta.appendChild(el("b", "", String(a.n))); cuenta.appendChild(document.createTextNode(" " + a.unidad));
+    pie.appendChild(cuenta); pie.appendChild(el("span", "", "Abrir →"));
+    cuerpo.appendChild(pie);
+    t.appendChild(ilu); t.appendChild(cuerpo);
+    caja.appendChild(t);
+  });
+  var nuevos = itemsNuevos(), cajaN = document.getElementById("lobby-nuevo-caja"), listaN = document.getElementById("lobby-nuevo");
+  cajaN.hidden = nuevos.length === 0;
+  listaN.textContent = "";
+  nuevos.forEach(function (x) {
+    var m = el("a", "mini");
+    m.href = "#" + x.ir; m.setAttribute("data-ir", x.ir);
+    m.appendChild(el("small", "", x.rotulo)); m.appendChild(el("h4", "", x.titulo));
+    marcaNuevo(m);
+    listaN.appendChild(m);
+  });
+}
+
+(function cintaDeMaterias() {
+  var vistos = {}, nombres = [];
+  [recursos, videos, cursos, admisiones, videosAdm].forEach(function (lista) {
+    lista.forEach(function (x) {
+      var k = normalizar(x.tema);
+      if (!vistos[k]) { vistos[k] = true; nombres.push(x.tema); }
+    });
+  });
+  var caja = document.getElementById("cinta");
+  for (var vuelta = 0; vuelta < 2; vuelta++) for (var rep = 0; rep < 2; rep++) nombres.forEach(function (n) { caja.appendChild(el("span", "", n)); });
+})();
+
+var lobbyControl = (function () {
+  var hero = document.getElementById("lobby-hero"), palabra = document.getElementById("lobby-palabra");
+  var frases = ["guías claras", "videos útiles", "cursos completos", "carpetas de exámenes"], idx = 0, reloj = 0;
+  hero.addEventListener("pointermove", function (e) {
+    var r = hero.getBoundingClientRect();
+    hero.style.setProperty("--px", (((e.clientX - r.left) / r.width - .5) * 2).toFixed(3));
+    hero.style.setProperty("--py", (((e.clientY - r.top) / r.height - .5) * 2).toFixed(3));
+  });
+  hero.addEventListener("pointerleave", function () { hero.style.setProperty("--px", 0); hero.style.setProperty("--py", 0); });
+  return {
+    iniciar: function () {
+      if (reloj || reducidoLobby) return;
+      reloj = setInterval(function () {
+        palabra.classList.add("sale");
+        setTimeout(function () { idx = (idx + 1) % frases.length; palabra.textContent = frases[idx]; palabra.classList.remove("sale"); }, 380);
+      }, 2800);
+    },
+    parar: function () { clearInterval(reloj); reloj = 0; }
+  };
+})();
+vistas.inicio = { render: pintarLobby };
+
 var cajaRecursos = document.getElementById("caja-recursos");
 var barraPestanas = document.getElementById("pestanas");
 
@@ -990,6 +1093,8 @@ function mostrarVista(id) {
     if (a.getAttribute("data-ir") === id) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
   });
   vistas[id].render();
+  document.getElementById("cabecera").hidden = id === "inicio";
+  if (id === "inicio") lobbyControl.iniciar(); else lobbyControl.parar();
   document.getElementById("menu-admisiones").classList.toggle("activo", id.indexOf("adm-") === 0);
   document.getElementById("contacto").hidden = SECCIONES_CON_SUGERENCIA.indexOf(id) === -1;
   var activa = barraPestanas.querySelector('[aria-current="page"]');
@@ -1014,7 +1119,7 @@ document.addEventListener("click", function (e) {
   if (destino.hidden) destino = document.getElementById("pie");
   destino.scrollIntoView({ behavior: "smooth", block: "center" });
 });
-function alCambiarRuta() { var n = nombreDesdeHash() || "materias"; if (n !== vistaActual) mostrarVista(n); }   
+function alCambiarRuta() { var n = nombreDesdeHash() || "inicio"; if (n !== vistaActual) mostrarVista(n); }   
 window.addEventListener("popstate", alCambiarRuta);
 window.addEventListener("hashchange", alCambiarRuta);
 
@@ -1048,7 +1153,7 @@ menus.forEach(function (m) {
 document.addEventListener("click", function (e) { if (!e.target.closest(".menu")) cerrarMenus(); });
 document.addEventListener("keydown", function (e) { if (e.key === "Escape") cerrarMenus(); });
 
-mostrarVista(nombreDesdeHash() || "materias");   
+mostrarVista(nombreDesdeHash() || "inicio");   
 
 var urlSugerencias = "https://script.google.com/macros/s/AKfycbzkuBirgytLrb3KRXrOdpXNzGXJ1nYdv6W9ofejgCzv7gP5eRtLBL3s1kxlypNzzBb3Xg/exec";
 
