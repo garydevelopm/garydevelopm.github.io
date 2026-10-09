@@ -171,6 +171,10 @@ var recursos = [
     url: "pdfs/Guia_Estudio_Mecanica_de_Solidos.pdf"
   },
 ];
+var admisiones = [
+];
+var videosAdm = [
+];
 var linkInstagram = "https://www.instagram.com/garydevelop";
 
 var videos = [
@@ -279,13 +283,16 @@ document.getElementById("cookies-no").addEventListener("click", function () { el
 if (leerCookie("gm_consent") === "") cajaCookies.hidden = false;
 
 var secciones = [
-  { id: "materias",  nombre: "Materias",  dato: "Guías en PDF por materia", grupo: "Estudio" },
-  { id: "drive",     nombre: "Drive",     dato: "Exámenes y ejercicios",    grupo: "Estudio" },
-  { id: "videos",    nombre: "Videos",    dato: "Clases en video",          grupo: "Estudio" },
-  { id: "cursos",    nombre: "Cursos",    dato: "Cursos completos",         grupo: "Estudio" },
-  { id: "playlists", nombre: "Playlists", dato: "Música para tu estudio",   grupo: "Extras" },
-  { id: "noticias",  nombre: "Noticias",  dato: "Información del mundo STEM", grupo: "Extras" },
-  { id: "eventos",   nombre: "Eventos próximos", dato: "Eventos de ESPOL y nacionales", grupo: "Extras" }
+  { id: "materias",  nombre: "Materias",  dato: "Guías en PDF por materia", grupo: "Estudio", menu: "recursos" },
+  { id: "drive",     nombre: "Drive",     dato: "Exámenes y ejercicios",    grupo: "Estudio", menu: "recursos" },
+  { id: "videos",    nombre: "Videos",    dato: "Clases en video",          grupo: "Estudio", menu: "recursos" },
+  { id: "cursos",    nombre: "Cursos",    dato: "Cursos completos",         grupo: "Estudio", menu: "recursos" },
+  { id: "playlists", nombre: "Playlists", dato: "Música para tu estudio",   grupo: "Extras", menu: "recursos" },
+  { id: "noticias",  nombre: "Noticias",  dato: "Información del mundo STEM", grupo: "Extras", menu: "recursos" },
+  { id: "eventos",   nombre: "Eventos próximos", dato: "Eventos de ESPOL y nacionales", grupo: "Extras", menu: "recursos" },
+  { id: "adm-materias", nombre: "Materias", nombrePie: "Admisiones · Materias", dato: "Guías en PDF del pre",          grupo: "Solo para el pre de ESPOL", menu: "admisiones", sinPestana: true },
+  { id: "adm-drive",    nombre: "Drive",    nombrePie: "Admisiones · Drive",    dato: "Exámenes y ejercicios del pre", grupo: "Solo para el pre de ESPOL", menu: "admisiones", sinPestana: true },
+  { id: "adm-videos",   nombre: "Videos",   nombrePie: "Admisiones · Videos",   dato: "Clases para prepararte",        grupo: "Solo para el pre de ESPOL", menu: "admisiones", sinPestana: true }
 ];
 
 function el(tag, clase, texto) {
@@ -533,6 +540,42 @@ function crearVistaRecursos(idSeccion, base, placeholder, vacio, fuenteVideos, c
 crearVistaRecursos("materias", recursos.filter(function (r) { return r.tipo === "PDF"; }),
   "Buscar materia o guía…", "Todavía no hay guías en esta materia.", videos, "gm_tema");
 crearVistaRecursos("drive", recursos.filter(function (r) { return r.tipo === "Drive"; }),
+function crearVistaVideos(idSeccion, lista, placeholder) {
+  var validos = lista.filter(function (v) { return idVideoOk(v.id); });
+  var sec = document.getElementById("vista-" + idSeccion);
+  var res = sec.querySelector("[data-resumen]"), vacio = sec.querySelector("[data-vacio]");
+  var carrete = crearCarrete();
+  sec.querySelector("[data-carrete]").appendChild(carrete.raiz);
+  var f = crearFiltro(sec, placeholder, function () { render(); });
+  f.poner(unicos(validos, "tema"));
+  function mezclar(items) {
+    var grupos = {};
+    items.forEach(function (v) { (grupos[v.tema] = grupos[v.tema] || []).push(v); });
+    var listas = Object.keys(grupos).map(function (t) { return grupos[t]; });
+    var mayor = Math.max.apply(null, listas.map(function (g) { return g.length; }));
+    var out = [];
+    for (var i = 0; i < mayor; i++) listas.forEach(function (g) { if (g[i]) out.push(g[i]); });
+    return out;
+  }
+  function render() {
+    var e = f.estado, esTodos = e.tema === "Todos";
+    var base = validos.filter(function (v) { return (esTodos || v.tema === e.tema) && coincide(e.consulta, [v.titulo, v.canal, v.tema]); });
+    var elegidos = esTodos ? mezclar(base) : base;
+    textoResumen(res, elegidos.length, e.consulta);
+    carrete.raiz.hidden = elegidos.length === 0;
+    vacio.hidden = elegidos.length !== 0;
+    if (elegidos.length === 0) { vacio.textContent = e.consulta.trim() ? "No encontré videos para «" + e.consulta.trim() + "»." : "Todavía no hay videos en esta materia."; return; }
+    carrete.pintar(elegidos, esTodos);
+  }
+  ponerActualizado(sec, validos);
+  vistas[idSeccion] = { render: render };
+}
+
+crearVistaRecursos("adm-materias", admisiones.filter(function (r) { return r.tipo === "PDF"; }),
+  "Buscar materia del pre…", "Todavía no hay guías en esta materia.", videosAdm);
+crearVistaRecursos("adm-drive", admisiones.filter(function (r) { return r.tipo === "Drive"; }),
+  "Buscar materia del pre…", "Todavía no hay carpetas en esta materia.", videosAdm);
+crearVistaVideos("adm-videos", videosAdm, "Buscar video o materia del pre…");               
   "Buscar materia o carpeta…", "Todavía no hay carpetas en esta materia.", videos);
 
 
@@ -899,39 +942,46 @@ var cajaRecursos = document.getElementById("caja-recursos");
 var barraPestanas = document.getElementById("pestanas");
 
 (function construirMenus() {
-  var grupoActual = "";
+  var cajas = { recursos: cajaRecursos, admisiones: document.getElementById("caja-admisiones") };
+  var grupos = {};
   secciones.forEach(function (s) {
-    if (s.grupo !== grupoActual) {
-      if (grupoActual !== "") cajaRecursos.appendChild(el("div", "menu-sep"));
-      cajaRecursos.appendChild(el("span", "menu-grupo", s.grupo));
-      grupoActual = s.grupo;
+    var caja = cajas[s.menu];
+    if (caja) {
+      if (s.grupo !== grupos[s.menu]) {
+        if (grupos[s.menu] !== undefined) caja.appendChild(el("div", "menu-sep"));
+        caja.appendChild(el("span", "menu-grupo", s.grupo));
+        grupos[s.menu] = s.grupo;
+      }
+      var a = el("a");
+      a.href = "#" + s.id; a.setAttribute("data-ir", s.id);
+      a.appendChild(el("span", "menu-titulo", s.nombre));
+      a.appendChild(el("span", "menu-dato", s.dato));
+      caja.appendChild(a);
     }
-    var a = el("a");
-    a.href = "#" + s.id; a.setAttribute("data-ir", s.id);
-    a.appendChild(el("span", "menu-titulo", s.nombre));
-    a.appendChild(el("span", "menu-dato", s.dato));
-    cajaRecursos.appendChild(a);
-    // pestañas de celular
-    var p = el("a", "", s.nombre);
-    p.href = "#" + s.id; p.setAttribute("data-ir", s.id);
-    barraPestanas.appendChild(p);
+    if (!s.sinPestana) {
+      var p = el("a", "", s.nombre);
+      p.href = "#" + s.id; p.setAttribute("data-ir", s.id);
+      barraPestanas.appendChild(p);
+    }
   });
 })();
 
-(function construirPie() {   
+(function construirPie() {
   var caja = document.getElementById("pie-links");
   secciones.forEach(function (sec) {
-    var a = el("a", "", sec.nombre);
+    if (sec.id === "inicio") return;
+    var a = el("a", "", sec.nombrePie || sec.nombre);
     a.href = "#" + sec.id; a.setAttribute("data-ir", sec.id);
     caja.appendChild(a);
   });
 })();
 
-var SECCIONES_CON_SUGERENCIA = ["materias", "drive", "videos", "cursos"];
+var SECCIONES_CON_SUGERENCIA = ["materias", "drive", "videos","cursos", "adm-materias", "adm-drive", "adm-videos"];
 var vistaActual = "";
 function nombreDesdeHash() {
   var h = location.hash.replace("#", "");
   if (h === "recursos" || h === "guias") return "materias";   
+  if (h === "admisiones") return "adm-materias";
   return secciones.some(function (s) { return s.id === h; }) ? h : "";
 }
 function mostrarVista(id) {
@@ -941,6 +991,7 @@ function mostrarVista(id) {
     if (a.getAttribute("data-ir") === id) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
   });
   vistas[id].render();
+  document.getElementById("menu-admisiones").classList.toggle("activo", id.indexOf("adm-") === 0);
   document.getElementById("contacto").hidden = SECCIONES_CON_SUGERENCIA.indexOf(id) === -1;
   var activa = barraPestanas.querySelector('[aria-current="page"]');
   if (activa) barraPestanas.scrollLeft = activa.offsetLeft - barraPestanas.clientWidth / 2 + activa.clientWidth / 2;
