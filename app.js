@@ -1,15 +1,15 @@
-var recursos = [
-  { 
+var recursos =[
+ { 
     titulo: "Repositorios de examenes para FP", 
     desc: "Examenes, talleres, lecciones y ejercicios variados de toda la materia.", 
-    tema: "Programacion", 
+    tema: "Fp", 
     tipo: "Drive", 
     url: "https://drive.google.com/drive/folders/1KEu5DSlKlXquYaRCSiNPzoeQ-RhiVfrt?usp=sharing"
   },
   { 
     titulo: "Guia de estudio para FP", 
     desc: "Guía de estudio completa de FP. Resumen de toda la materia, formularios, tips y conceptos clave.",
-    tema: "Programacion", 
+    tema: "Fp", 
     tipo: "PDF", 
     guia: true,
     url: "pdfs/Guia_Estudio_FP.pdf" 
@@ -21,7 +21,162 @@ var recursos = [
     tipo: "Drive", 
     url: "https://drive.google.com/drive/folders/1AiT2JNjb5KD0BTn4wEhjbETxUSVEjKsh?usp=sharing"
   },
+  { 
+    titulo: "Repositorios de examenes para Estadistica I", 
+    desc: "Examenes, talleres, lecciones y ejercicios variados de toda la materia.", 
+    tema: "Estadistica", 
+    tipo: "Drive", 
+    url: "https://drive.google.com/drive/folders/1Z7lU4bLlBvEtPaBZvPJg6cbcqTCZhp64?usp=sharing"
+  },
+  { 
+    titulo: "Guia de estudio para Estadistica I", 
+    desc: "Guía de estudio completa de Estadística I. Resumen de toda la materia, formularios, tips y conceptos clave.",
+    tema: "Estadistica", 
+    tipo: "PDF", 
+    guia: true,
+    url: "pdfs/Guia_Estudio_Estadistica_I.pdf" 
+  },
+  { 
+    titulo: "Repositorios de examenes para Calculo Vectorial", 
+    desc: "Examenes, talleres, lecciones y ejercicios variados de toda la materia.", 
+    tema: "Calculo Vectorial", 
+    tipo: "Drive", 
+    url: "https://drive.google.com/drive/folders/1qZEa4o02iSnE83H-gejO8_opV97cPCUr?usp=sharing"
+  },
+  { 
+    titulo: "Guia de estudio para Calculo Vectorial", 
+    desc: "Guía de estudio completa de CV/CVV. Resumen de toda la materia, formularios, tips y conceptos clave.", 
+    tema: "Calculo Vectorial",
+    tipo: "PDF", 
+    guia: true, 
+    url: "pdfs/Guia_Estudio_Calculo_Vectorial.pdf" 
+  }, 
+  {
+    titulo: "Guia de estudio para Fisica Mecanica", 
+    desc: "Guía de estudio completa de FM. Resumen de toda la materia, formularios, tips y conceptos clave.", 
+    tema: "Fisica Mecanica", 
+    tipo: "PDF", 
+    guia: true, 
+    url: "pdfs/Guia_Estudio_Fisica_Mecanica.pdf" 
+  },
+  { 
+    titulo: "Guia de estudio para Calculo de una Variable", 
+    desc: "Guía de estudio completa de Cálculo de una Variable. Resumen de toda la materia, formularios, tips y conceptos clave.", 
+    tema: "Calculo", 
+    tipo: "PDF", 
+    guia: true, 
+    url: "pdfs/Guia_Estudio_Calculo_Una_Variable.pdf" 
+  },
+  { 
+    titulo: "Guia de estudio para Algebra Lineal", 
+    desc: "Guía de estudio completa de Álgebra Lineal. Resumen de toda la materia, formularios, tips y conceptos clave.", 
+    tema: "Algebra Lineal", 
+    tipo: "PDF", 
+    guia: true, 
+    url: "pdfs/Guia_Estudio_Algebra_Lineal.pdf" 
+  },
+  { 
+    titulo: "Guia de estudio para Ecuaciones Diferenciales", 
+    desc: "Guía de estudio completa de Ecuaciones Diferenciales. Resumen de toda la materia, formularios, tips y conceptos clave.", 
+    tema: "Ecuaciones Diferenciales", 
+    tipo: "PDF",
+    guia: true, 
+    url: "pdfs/Guia_Estudio_Ecuaciones_Diferenciales.pdf" 
+  },
+  { 
+    titulo: "Guia de estudio para programacion orientada a obejetos/poo", 
+    desc: "Guía de estudio completa de Poo con Java. Resumen de toda la materia, ejemplos de código, tips y conceptos clave.", 
+    tema: "Poo", 
+    tipo: "PDF", 
+    guia: true, 
+    url: "pdfs/Guia_Estudio_POO.pdf" 
+  },
+  {
+    titulo: "Guia de estudio para Quimica Organica I",
+    desc: "Guía de estudio completa de Química Orgánica I. Resumen de toda la materia, formularios, tips y conceptos clave.",
+    tema: "Quimica Organica",
+    tipo: "PDF",
+    guia: true,
+    url: "pdfs/Guia_Estudio_Quimica_Organica_I.pdf"
+  },
+  {
+    titulo: "Guia de estudio para Ecuaciones Diferenciales y Algebra Lineal",
+    desc: "Guía de estudio completa de Ecuaciones Diferenciales y Álgebra Lineal. Resumen de toda la materia, formularios, tips y conceptos clave.",
+    tema: "Edal",
+    tipo: "PDF",
+    guia: true,
+    url: "pdfs/Guia_Estudio_EDO_Algebra_Lineal.pdf"
+  },
+  {
+    titulo: "Guia de estudio para Fisica Electronica y Optica",
+    desc: "Guía de estudio completa de Física: Electrónica y Óptica. Resumen de toda la materia, formularios, tips y conceptos clave.",
+    tema: "Fisica Electronica y Optica", 
+    tipo: "PDF",
+    guia: true,
+    url: "pdfs/Guia_Estudio_Fisica_Electronica_Optica.pdf"
+  },
+  {
+    titulo: "Drive de Fisica Mecanica",
+    desc: "Examenes, talleres, lecciones y ejercicios variados de toda la materia.",
+    tema: "Fisica Mecanica",
+    tipo: "Drive",
+    url: "https://drive.google.com/drive/folders/1-UY2hHUIj12ffsVdO0LAKVWYk459na2Y?usp=drive_link"
+  },
+  {
+    titulo: "Guia de estudio para Matematicas Discretas",
+    desc: "Guía de estudio completa de Matemáticas Discretas. Resumen de toda la materia, formularios, tips y conceptos clave.",
+    tema: "Matematicas Discretas",
+    tipo: "PDF",
+    guia: true,
+    url: "pdfs/Guia_Estudio_Matematicas_Discretas.pdf"
+  },
+  {
+    titulo: "Guia de estudio para Matematicas Financieras",
+    desc: "Guía de estudio completa de Matemáticas Financieras. Resumen de toda la materia, formularios, tips y conceptos clave.",
+    tema: "Matematicas Financieras",
+    tipo: "PDF",
+    guia: true,
+    url: "pdfs/Guia_Estudio_Matematicas_Financieras.pdf"
+  },
+  {
+    titulo: "Guia de estudio para Fisiologia Vegetal",
+    desc: "Guía de estudio completa de Fisiología Vegetal. Resumen de toda la materia, formularios, tips y conceptos clave.",
+    tema: "Fisiologia Vegetal",
+    tipo: "PDF",
+    guia: true,
+    url: "pdfs/Guia_Estudio_Fisiologia_Vegetal.pdf"
+  },
+  {
+    titulo: "Guia de estudio para Economia Matematica",
+    desc: "Guía de estudio completa de Economía Matemática. Resumen de toda la materia, formularios, tips y conceptos clave.",
+    tema: "Economia Matematica",
+    tipo: "PDF",
+    guia: true,
+    url: "pdfs/Guia_Estudio_Economia_Matematica.pdf"
+  },
+  {
+    titulo: "Guia de estudio para Fisica Electricidad y Magnetismo",
+    desc: "Guía de estudio completa de Física: Electricidad y Magnetismo. Resumen de toda la materia, formularios, tips y conceptos clave.",
+    tema: "Fisica Electricidad y Magnetismo",
+    tipo: "PDF",
+    guia: true,
+    url: "pdfs/Guia_Estudio_Fisica_Electricidad_Magnetismo.pdf"
+  },
+  {
+    titulo: "Guia de estudio para Mecanica de Solidos",
+    desc: "Guía de estudio completa de Mecánica de Sólidos. Resumen de toda la materia, formularios, tips y conceptos clave.",
+    tema: "Mecanica de Solidos",
+    tipo: "PDF",
+    guia: true,
+    url: "pdfs/Guia_Estudio_Mecanica_de_Solidos.pdf"
+  },
 ];
+var linkInstagram = "https://www.instagram.com/garydevelop";
+
+var videos = [
+    { titulo: "Python desde cero", canal: "Piogram", tema: "Fp", id: "DJdBGf7uzg4" },
+    { titulo: "Fundamentos de programacion", canal: "Robespierre Triviño", tema: "Fp", id: "HlkA0yc2uKo" },
+     
 var admisiones = [
 ];
 var videosAdm = [
