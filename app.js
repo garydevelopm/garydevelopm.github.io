@@ -172,6 +172,30 @@ var recursos = [
   },
 ];
 var admisiones = [
+   { titulo: "Física para Ingeniería", 
+    desc: "Medición y unidades, vectores, cinemática y dinámica.", 
+    tema: "Física Ingeniería", 
+    tipo: "PDF", 
+    fecha: "2026-10-09", 
+    url: "pdfs/Guia_Estudio_Fisica_Ingenieria_Admisiones.pdf" },
+  { titulo: "Matemáticas para Ingeniería", 
+    desc: "Lógica, funciones, trigonometría, matrices, geometría y más.", 
+    tema: "Matemáticas Ingeniería", 
+    tipo: "PDF", 
+    fecha: "2026-10-09", 
+    url: "pdfs/Guia_Estudio_Matematicas_Ingenieria_Admisiones.pdf" },
+  { titulo: "Ciencia para Artes", 
+    desc: "Proporciones, ecuaciones, trigonometría, vectores, cinemática y equilibrio.", 
+    tema: "Ciencia para Artes", 
+    tipo: "PDF", 
+    fecha: "2026-10-09", 
+    url: "pdfs/Guia_Estudio_Ciencia_para_Artes_Admisiones.pdf" },
+  { titulo: "Matemática Básica", 
+    desc: "Lógica, conjuntos, reales, funciones, transformaciones y cónicas.", 
+    tema: "Matemática Básica", 
+    tipo: "PDF", 
+    fecha: "2026-10-09",
+    url: "pdfs/Guia_Estudio_Matematica_Basica_Admisiones.pdf" },
 ];
 var videosAdm = [
 ];
