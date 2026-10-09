@@ -1,4 +1,4 @@
-var recursos =[
+var recursos = [
  { 
     titulo: "Repositorios de examenes para FP", 
     desc: "Examenes, talleres, lecciones y ejercicios variados de toda la materia.", 
@@ -176,22 +176,17 @@ var linkInstagram = "https://www.instagram.com/garydevelop";
 var videos = [
     { titulo: "Python desde cero", canal: "Piogram", tema: "Fp", id: "DJdBGf7uzg4" },
     { titulo: "Fundamentos de programacion", canal: "Robespierre Triviño", tema: "Fp", id: "HlkA0yc2uKo" },
-];
-var admisiones = [
-];
-var videosAdm = [
-];
-var linkInstagram = "https://www.instagram.com/garydevelop";
-
-var videos = [
-    { titulo: "Python desde cero", canal: "Piogram", tema: "Programacion", id: "DJdBGf7uzg4" },
-    { titulo: "Fundamentos de programacion", canal: "Robespierre Triviño", tema: "Programacion", id: "HlkA0yc2uKo" },
-    { titulo: "Python desde cero", canal: "Soy Dalto", tema: "Programacion", id: "nKPbfIU442g" },
-    { titulo: "Python desde cero para principiantes", canal: "MoureDev by Brais Moure", tema: "Programacion", id: "Kp4Mvapo5kc" },
-    { titulo: "Introduccion a numpy y pandas", canal: "Juan Romero", tema: "Programacion", id: "Ft-04pxLhIw" },
-    { titulo: "POO con Python desde cero", canal: "Soy Dalto", tema: "Programacion", id: "HtKqSJX7VoM" },
+    { titulo: "Python desde cero", canal: "Soy Dalto", tema: "Fp", id: "nKPbfIU442g" },
+    { titulo: "Python desde cero para principiantes", canal: "MoureDev by Brais Moure", tema: "Fp", id: "Kp4Mvapo5kc" },
+    { titulo: "Introduccion a numpy y pandas", canal: "Juan Romero", tema: "Fp", id: "Ft-04pxLhIw" },
+    { titulo: "POO con Python desde cero", canal: "Soy Dalto", tema: "Fp", id: "HtKqSJX7VoM" },
     { titulo: "Nociones topológicas #1 (Introducción y conceptos básicos)", canal: "Profe Andy Ayluardo", tema: "Calculo", id: "I2j9BLwqiBE" },
-    { titulo: "Cálculo de varias variables clase 1: introducción", canal: "Jesus Gregorio Miranda Benavides", tema: "Calculo", id: "hi0yUyv9xY8" }, 
+    { titulo: "Cálculo de varias variables clase 1: introducción", canal: "Jesus Gregorio Miranda Benavides", tema: "Calculo vectorial", id: "hi0yUyv9xY8" }, 
+    { titulo:"Definiciones básicas de Estadística: Población, muestra y diferencia entre parámetro y estadístico (estadistica 1)", canal:"FCNM ESPOL", tema:"Estadistica", id:"Rc3TJHcNSW0" },
+    { titulo:"Clase estadistica 1- Conceptos Básicos y Diagramas", canal:"domenica coello", tema:"Estadistica", id:"1VLgBbeUtQk" },
+    { titulo:"Ayudantias estadistica 1", canal:"Ivis Pérez Fuentes", tema:"Estadistica", id:"YuTZ6jBPgQE" },
+    { titulo:"Mega Ayudantias estadistica 1 - segundo parcial", canal:"Tico Nuñez Gambarrotti", tema:"Estadistica", id:"FBz2S9mLJ_k" },
+    { titulo:"Ayudantía de Estadística 1", canal:"Profe Andy Ayluardo", tema:"Estadistica", id:"hEMsQ2c1r6Q" },
   ];
 
 var cursos = [
@@ -284,17 +279,13 @@ document.getElementById("cookies-no").addEventListener("click", function () { el
 if (leerCookie("gm_consent") === "") cajaCookies.hidden = false;
 
 var secciones = [
-  { id: "inicio",    nombre: "Inicio" },
-  { id: "materias",  nombre: "Materias",  dato: "Guías en PDF por materia",  grupo: "Del semestre", menu: "recursos" },
-  { id: "drive",     nombre: "Drive",     dato: "Exámenes y ejercicios",     grupo: "Del semestre", menu: "recursos" },
-  { id: "videos",    nombre: "Videos",    dato: "Clases en video",           grupo: "Del semestre", menu: "recursos" },
-  { id: "cursos",    nombre: "Cursos" },
-  { id: "noticias",  nombre: "Noticias" },
-  { id: "eventos",   nombre: "Eventos próximos" },
-  { id: "playlists", nombre: "Playlists" },
-  { id: "adm-materias", nombre: "Materias", nombrePie: "Admisiones · Materias", dato: "Guías en PDF del pre",          grupo: "Solo para el pre de ESPOL", menu: "admisiones", sinPestana: true },
-  { id: "adm-drive",    nombre: "Drive",    nombrePie: "Admisiones · Drive",    dato: "Exámenes y ejercicios del pre", grupo: "Solo para el pre de ESPOL", menu: "admisiones", sinPestana: true },
-  { id: "adm-videos",   nombre: "Videos",   nombrePie: "Admisiones · Videos",   dato: "Clases para prepararte",        grupo: "Solo para el pre de ESPOL", menu: "admisiones", sinPestana: true }
+  { id: "materias",  nombre: "Materias",  dato: "Material por materia", grupo: "Estudio" },
+  { id: "guias",     nombre: "Guías",     dato: "Guías y resúmenes",              grupo: "Estudio" },
+  { id: "videos",    nombre: "Videos",    dato: "Clases en video",                 grupo: "Estudio" },
+  { id: "cursos",    nombre: "Cursos",    dato: "Cursos completos",        grupo: "Estudio" },
+  { id: "playlists", nombre: "Playlists", dato: "Música para tu estudio",       grupo: "Extras" },
+  { id: "noticias",  nombre: "Noticias",  dato: "Información del mundo STEM",         grupo: "Extras" },
+  { id: "eventos",   nombre: "Eventos próximos", dato: "Eventos de ESPOL y nacionales", grupo: "Extras" }
 ];
 
 function el(tag, clase, texto) {
@@ -334,7 +325,7 @@ function mensajeVacio(consulta, tipo, porDefecto) {
   p.textContent = q ? "No encontré " + tipo + " para «" + q + "»." : porDefecto;
   return p;
 }
-function marcaNuevo(tarjeta) { tarjeta.appendChild(el("span", "nuevo", "Nuevo")); }
+function pildoraNuevo() { return el("span", "nuevo", "Nuevo"); }
 function fondoDegradado(color) { if (typeof color !== "number") color = 210; return "linear-gradient(135deg, hsl(" + color + " 45% 32%), hsl(" + (color + 40) + " 40% 14%))"; }
 
 function abrirEnlace(a, url) {   // solo enlaces https (o tus PDFs en pdfs/); si no hay enlace, el botón queda apagado
@@ -432,153 +423,49 @@ function pintarRecursos(cont, lista, consulta, vacio) {
     var t = el("article", "card");
     var fila = el("div", "fila-tag");
     fila.appendChild(el("span", "tag", textoSeguro(r.tipo, 12) + " · " + textoSeguro(r.tema, 20)));
+    if (esNuevo(r.fecha)) fila.appendChild(pildoraNuevo());
     var tipo = String(r.tipo).toLowerCase();
     var boton = el("a", "btn", tipo === "pdf" ? "Descargar PDF" : (tipo === "drive" ? "Abrir en Drive" : "Abrir enlace"));
     abrirEnlace(boton, r.url);
     t.appendChild(fila); t.appendChild(el("h3", "", r.titulo)); t.appendChild(el("p", "", r.desc)); t.appendChild(boton);
-    if (esNuevo(r.fecha)) marcaNuevo(t);
     cont.appendChild(t);
   });
 }
-
-function masNuevosPrimero(a, b) {
-  var fa = a.fecha || "", fb = b.fecha || "";
-  return fa < fb ? 1 : (fa > fb ? -1 : 0);
-}
-
-function crearCarrete() {
-  var raiz = el("div", "carrete");
-  var izq = el("button", "flecha flecha-izq", "❮"); izq.type = "button"; izq.setAttribute("aria-label", "Ver videos anteriores");
-  var der = el("button", "flecha flecha-der", "❯"); der.type = "button"; der.setAttribute("aria-label", "Ver más videos");
-  var pista = el("div", "carrete-pista");
-  raiz.appendChild(izq); raiz.appendChild(pista); raiz.appendChild(der);
-
-  function revisar() {
-    var maximo = pista.scrollWidth - pista.clientWidth;
-    izq.disabled = pista.scrollLeft <= 2;
-    der.disabled = pista.scrollLeft >= maximo - 2;
-  }
-  izq.addEventListener("click", function () { pista.scrollBy({ left: -pista.clientWidth * 0.8, behavior: "smooth" }); });
-  der.addEventListener("click", function () { pista.scrollBy({ left: pista.clientWidth * 0.8, behavior: "smooth" }); });
-  pista.addEventListener("scroll", revisar);
-  window.addEventListener("resize", revisar);
-
-  var arrastrando = false, seMovio = false, inicioX = 0, inicioScroll = 0;
-  pista.addEventListener("mousedown", function (e) { arrastrando = true; seMovio = false; inicioX = e.pageX; inicioScroll = pista.scrollLeft; });
-  window.addEventListener("mousemove", function (e) {
-    if (!arrastrando) return;
-    var d = e.pageX - inicioX;
-    if (Math.abs(d) > 5) { seMovio = true; pista.style.scrollSnapType = "none"; }
-    if (seMovio) pista.scrollLeft = inicioScroll - d;
-  });
-  window.addEventListener("mouseup", function () { if (!arrastrando) return; arrastrando = false; pista.style.scrollSnapType = ""; });
-  pista.addEventListener("click", function (e) { if (seMovio) { e.preventDefault(); seMovio = false; } }, true);
-
-  return {
-    raiz: raiz,
-    pintar: function (lista, mostrarTema) {
-      pista.textContent = "";
-      lista.forEach(function (v) {
-        var a = el("a", "video");
-        a.href = "https://www.youtube.com/watch?v=" + v.id; a.target = "_blank"; a.rel = "noopener noreferrer";
-        var mini = el("div", "miniatura");
-        mini.style.background = fondoDegradado(v.color);
-        var img = el("img");
-        img.src = "https://i.ytimg.com/vi/" + v.id + "/hqdefault.jpg"; img.alt = ""; img.loading = "lazy"; img.draggable = false; img.referrerPolicy = "no-referrer";
-        img.addEventListener("error", function () { img.remove(); });
-        mini.appendChild(img); mini.appendChild(el("span", "play"));
-        if (mostrarTema) mini.appendChild(el("span", "video-tema", v.tema));
-        a.appendChild(mini); a.appendChild(el("span", "video-titulo", v.titulo)); a.appendChild(el("span", "video-canal", v.canal));
-        if (esNuevo(v.fecha)) marcaNuevo(a);
-        pista.appendChild(a);
-      });
-      pista.scrollLeft = 0;
-      revisar();
-    }
-  };
-}
-
-function crearRecomendados(seccion, fuente) {
-  var validos = fuente.filter(function (v) { return idVideoOk(v.id); });
-  var caja = el("div", "recomendados");
-  caja.hidden = true;
-  var titulo = el("h3", "grupo-titulo", "Videos recomendados para ti");
-  var chica = el("small", "");
-  titulo.appendChild(chica);
-  var carrete = crearCarrete();
-  caja.appendChild(titulo); caja.appendChild(carrete.raiz);
-  seccion.appendChild(caja);
-  return {
-    pintar: function (resultados, buscando) {
-      var temas = buscando ? unicos(resultados, "tema") : [];
-      var lista = validos.filter(function (v) { return temas.indexOf(v.tema) !== -1; }).sort(masNuevosPrimero).slice(0, 8);
-      caja.hidden = lista.length === 0;
-      if (lista.length === 0) return;
-      chica.textContent = "de " + temas.join(", ");
-      carrete.pintar(lista, temas.length > 1);
-    }
-  };
-}
-
-function crearVistaRecursos(idSeccion, base, placeholder, vacio, fuenteVideos, cookieTema) {
-  var sec = document.getElementById("vista-" + idSeccion);
+(function () {   // MATERIAS
+  var sec = document.getElementById("vista-materias");
   var cont = sec.querySelector("[data-contenido]"), res = sec.querySelector("[data-resumen]");
-  var f = crearFiltro(sec, placeholder, function () { render(); }, cookieTema);
+  var f = crearFiltro(sec, "Buscar materia, tema o archivo…", function () { render(); }, "gm_tema");
+  f.poner(unicos(recursos, "tema").concat(unicos(recursos, "tipo")));
+function render() {
+    var e = f.estado;
+    var lista = recursos.filter(function (r) {
+      var pasa = e.tema === "Todos" || r.tema === e.tema || r.tipo.toLowerCase() === e.tema.toLowerCase();
+      return pasa && coincide(e.consulta, [r.titulo, r.desc, r.tema, r.tipo]);
+    });
+    pintarRecursos(cont, lista, e.consulta, "Todavía no hay material en este tema.");
+    textoResumen(res, lista.length, e.consulta);
+  }
+  ponerActualizado(sec, recursos);
+  vistas.materias = { render: render };
+})();
+
+(function () {   
+  var base = recursos.filter(function (r) { return r.guia; });
+  var sec = document.getElementById("vista-guias");
+  var cont = sec.querySelector("[data-contenido]"), res = sec.querySelector("[data-resumen]");
+  var f = crearFiltro(sec, "Buscar guía o materia…", function () { render(); });
   f.poner(unicos(base, "tema"));
-  var rec = crearRecomendados(sec, fuenteVideos);
   function render() {
     var e = f.estado;
     var lista = base.filter(function (r) {
       return (e.tema === "Todos" || r.tema === e.tema) && coincide(e.consulta, [r.titulo, r.desc, r.tema]);
-    }).sort(masNuevosPrimero);
-    pintarRecursos(cont, lista, e.consulta, vacio);
+    });
+    pintarRecursos(cont, lista, e.consulta, "Todavía no hay guías en esta materia.");
     textoResumen(res, lista.length, e.consulta);
-    rec.pintar(lista, e.tema !== "Todos" || e.consulta.trim() !== "");
   }
   ponerActualizado(sec, base);
-  vistas[idSeccion] = { render: render };
-}
-
-function crearVistaVideos(idSeccion, lista, placeholder) {
-  var validos = lista.filter(function (v) { return idVideoOk(v.id); });
-  var sec = document.getElementById("vista-" + idSeccion);
-  var res = sec.querySelector("[data-resumen]"), vacio = sec.querySelector("[data-vacio]");
-  var carrete = crearCarrete();
-  sec.querySelector("[data-carrete]").appendChild(carrete.raiz);
-  var f = crearFiltro(sec, placeholder, function () { render(); });
-  f.poner(unicos(validos, "tema"));
-  function mezclar(items) {
-    var grupos = {};
-    items.forEach(function (v) { (grupos[v.tema] = grupos[v.tema] || []).push(v); });
-    var listas = Object.keys(grupos).map(function (t) { return grupos[t]; });
-    var mayor = Math.max.apply(null, listas.map(function (g) { return g.length; }));
-    var out = [];
-    for (var i = 0; i < mayor; i++) listas.forEach(function (g) { if (g[i]) out.push(g[i]); });
-    return out;
-  }
-  function render() {
-    var e = f.estado, esTodos = e.tema === "Todos";
-    var base = validos.filter(function (v) { return (esTodos || v.tema === e.tema) && coincide(e.consulta, [v.titulo, v.canal, v.tema]); });
-    var elegidos = esTodos ? mezclar(base) : base;
-    textoResumen(res, elegidos.length, e.consulta);
-    carrete.raiz.hidden = elegidos.length === 0;
-    vacio.hidden = elegidos.length !== 0;
-    if (elegidos.length === 0) { vacio.textContent = e.consulta.trim() ? "No encontré videos para «" + e.consulta.trim() + "»." : "Todavía no hay videos en esta materia."; return; }
-    carrete.pintar(elegidos, esTodos);
-  }
-  ponerActualizado(sec, validos);
-  vistas[idSeccion] = { render: render };
-}
-
-crearVistaRecursos("materias", recursos.filter(function (r) { return r.tipo === "PDF"; }),
-  "Buscar materia o guía…", "Todavía no hay guías en esta materia.", videos, "gm_tema");
-crearVistaRecursos("drive", recursos.filter(function (r) { return r.tipo === "Drive"; }),
-  "Buscar materia o carpeta…", "Todavía no hay carpetas en esta materia.", videos);
-crearVistaRecursos("adm-materias", admisiones.filter(function (r) { return r.tipo === "PDF"; }),
-  "Buscar materia del pre…", "Todavía no hay guías en esta materia.", videosAdm);
-crearVistaRecursos("adm-drive", admisiones.filter(function (r) { return r.tipo === "Drive"; }),
-  "Buscar materia del pre…", "Todavía no hay carpetas en esta materia.", videosAdm);
-crearVistaVideos("adm-videos", videosAdm, "Buscar video o materia del pre…");
+  vistas.guias = { render: render };
+})();
 
 (function () {   
   var sec = document.getElementById("vista-videos");
@@ -641,7 +528,7 @@ crearVistaVideos("adm-videos", videosAdm, "Buscar video o materia del pre…");
       img.addEventListener("error", function () { img.remove(); });    // si no carga, queda el degradado
       mini.appendChild(img); mini.appendChild(el("span", "play"));
       if (esTodos) mini.appendChild(el("span", "video-tema", v.tema));
-      if (esNuevo(v.fecha)) marcaNuevo(a);
+      if (esNuevo(v.fecha)) mini.appendChild(pildoraNuevo());
       a.appendChild(mini); a.appendChild(el("span", "video-titulo", v.titulo)); a.appendChild(el("span", "video-canal", v.canal));
       pista.appendChild(a);
     });
@@ -689,7 +576,7 @@ crearVistaVideos("adm-videos", videosAdm, "Buscar video o materia del pre…");
       }
       portada.appendChild(el("span", "portada-grande", textoSeguro(c.duracion, 14)));
       portada.appendChild(el("span", "portada-etq", c.plataforma));
-      if (esNuevo(c.fecha)) marcaNuevo(t);
+      if (esNuevo(c.fecha)) portada.appendChild(pildoraNuevo());
 
       var cuerpo = el("div", "pcuerpo");
       cuerpo.appendChild(el("span", "tag", c.tema));
@@ -744,7 +631,7 @@ crearVistaVideos("adm-videos", videosAdm, "Buscar video o materia del pre…");
         for (var i = 0; i < 4; i++) eq.appendChild(el("i"));
         portada.appendChild(eq);
         portada.appendChild(el("span", "portada-etq", p.plataforma));
-        if (esNuevo(p.fecha)) marcaNuevo(t);
+        if (esNuevo(p.fecha)) portada.appendChild(pildoraNuevo());
         var cuerpo = el("div", "pcuerpo");
         cuerpo.appendChild(el("h3", "", p.titulo));
         cuerpo.appendChild(el("p", "", p.desc));
@@ -838,7 +725,7 @@ crearVistaVideos("adm-videos", videosAdm, "Buscar video o materia del pre…");
         portada.appendChild(img);
       }
       portada.appendChild(el("span", "portada-etq", n.tema));
-      if (esNuevo(n.fecha)) marcaNuevo(t);
+      if (esNuevo(n.fecha)) portada.appendChild(pildoraNuevo());
       var cuerpo = el("div", "pcuerpo");
       cuerpo.appendChild(el("span", "meta", [n.fuente, fechaCorta(n.fecha)].filter(Boolean).join(" · ")));
       cuerpo.appendChild(el("h3", "", n.titulo));
@@ -904,7 +791,6 @@ crearVistaVideos("adm-videos", videosAdm, "Buscar video o materia del pre…");
       var conFecha = fechaValida(ev.fecha);
       var d = conFecha ? diasHasta(ev.fecha) : 0, fecha = conFecha ? aFecha(ev.fecha) : null;
       var t = el("article", "pcard evento");
-      if (esNuevo(ev.subido)) marcaNuevo(t);
       var portada = el("div", "portada");
       portada.style.background = fondoDegradado(ev.color);
       if (urlSegura(ev.img).indexOf("https:") === 0) {   // miniatura / afiche del evento; si falla, queda el degradado
@@ -939,152 +825,43 @@ crearVistaVideos("adm-videos", videosAdm, "Buscar video o materia del pre…");
   vistas.eventos = { render: render };
 })();
 
-var ILU = {
-  cursos: '<svg class="ilu" viewBox="0 0 200 120" aria-hidden="true"><rect class="l fw" x="38" y="22" width="124" height="74" rx="9"></rect><rect class="fa" x="46" y="30" width="108" height="58" rx="5"></rect><circle class="fm" cx="100" cy="59" r="15"></circle><path d="M95 51l14 8-14 8z" fill="#2a1a08"></path><path class="l" d="M20 104h160"></path><rect x="62" y="108" width="76" height="5" rx="2.5" fill="rgba(255,255,255,.18)"></rect><rect class="fg" x="62" y="108" width="46" height="5" rx="2.5"></rect><path class="l fv" d="M152 8l28 11-28 11-28-11z"></path><path class="l" d="M180 19v13"></path><circle class="fm" cx="180" cy="35" r="3.2"></circle></svg>',
-  noticias: '<svg class="ilu" viewBox="0 0 200 120" aria-hidden="true"><rect class="l fw" x="44" y="12" width="112" height="98" rx="9"></rect><rect class="fa" x="54" y="22" width="92" height="12" rx="3"></rect><rect class="fv" x="54" y="43" width="40" height="30" rx="4"></rect><circle class="fm" cx="67" cy="53" r="4.6"></circle><path class="l" d="M54 70l13-10 8 6 9-9 10 13"></path><path class="l" d="M102 48h44M102 57h44M102 66h32"></path><path class="l" d="M54 84h92M54 94h66"></path><circle class="fg" cx="154" cy="17" r="6.5"></circle><circle class="l" cx="154" cy="17" r="12" opacity=".5"></circle></svg>',
-  eventos: '<svg class="ilu" viewBox="0 0 200 120" aria-hidden="true"><rect class="l fw" x="38" y="22" width="124" height="88" rx="11"></rect><path class="fv" d="M38 33a11 11 0 0 1 11-11h102a11 11 0 0 1 11 11v14H38z"></path><path class="l" d="M68 14v16M132 14v16"></path><g class="fl"><rect x="54" y="58" width="14" height="10" rx="3"></rect><rect x="76" y="58" width="14" height="10" rx="3"></rect><rect x="120" y="58" width="14" height="10" rx="3"></rect><rect x="142" y="58" width="10" height="10" rx="3"></rect><rect x="54" y="76" width="14" height="10" rx="3"></rect><rect x="76" y="76" width="14" height="10" rx="3"></rect><rect x="120" y="76" width="14" height="10" rx="3"></rect><rect x="54" y="94" width="14" height="8" rx="3"></rect></g><circle class="fm" cx="104" cy="75" r="11"></circle><path d="M104 68l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.5 5-.7z" fill="#2a1a08"></path><path class="l fg" d="M164 8c-8 0-14 6-14 13 0 9 14 19 14 19s14-10 14-19c0-7-6-13-14-13z"></path><circle cx="164" cy="21" r="4.5" fill="#06210f"></circle></svg>',
-  playlists: '<svg class="ilu" viewBox="0 0 200 120" aria-hidden="true"><path class="l" d="M52 78V64a48 48 0 0 1 96 0v14"></path><rect class="l fv" x="40" y="70" width="22" height="36" rx="10"></rect><rect class="l fv" x="138" y="70" width="22" height="36" rx="10"></rect><rect class="eq-b fm" x="76" y="74" width="7" height="26" rx="3.5"></rect><rect class="eq-b fa" x="87" y="62" width="7" height="38" rx="3.5"></rect><rect class="eq-b fg" x="98" y="50" width="7" height="50" rx="3.5"></rect><rect class="eq-b fa" x="109" y="66" width="7" height="34" rx="3.5"></rect><rect class="eq-b fm" x="120" y="78" width="7" height="22" rx="3.5"></rect><path class="l" d="M168 22v22"></path><circle class="fm" cx="162" cy="46" r="6"></circle><path class="l" d="M168 22l12 4"></path></svg>'
-};
-function atajosExtras() {
-  var hoy = new Date(); hoy.setHours(0, 0, 0, 0);
-  var proximos = eventos.filter(function (e) {
-    return fechaValida(e.fecha) ? aFecha(e.fecha).getTime() >= hoy.getTime() : e.abierto === true;
-  }).length;
-  return [
-    { id: "cursos",    titulo: "Cursos",   texto: "Cursos completos para aprender una herramienta o una materia de principio a fin.", n: cursos.length,   unidad: "cursos",   color: 265, ilu: ILU.cursos },
-    { id: "noticias",  titulo: "Noticias", texto: "Lo nuevo del mundo tech y STEM, con link a la fuente original.",                    n: noticias.length, unidad: "noticias", color: 210, ilu: ILU.noticias },
-    { id: "eventos",   titulo: "Eventos próximos", texto: "Charlas, talleres y hackatones de ESPOL y de todo el país.",                n: proximos,        unidad: "próximos", color: 28,  ilu: ILU.eventos },
-    { id: "playlists", titulo: "Playlists", texto: "Música para cada momento de estudio: concentrarte, relajarte o darte energía.",     n: playlists.length, unidad: "playlists", color: 325, ilu: ILU.playlists }
-  ];
-}
-
-function itemsNuevos() {
-  var out = [];
-  function sumar(lista, ir, rotulo) {
-    lista.forEach(function (x) {
-      if (esNuevo(x.fecha)) out.push({ titulo: x.titulo, rotulo: rotulo(x), fecha: x.fecha, ir: ir(x) });
-    });
-  }
-  sumar(recursos, function (r) { return String(r.tipo).toLowerCase() === "pdf" ? "materias" : "drive"; }, function (r) { return textoSeguro(r.tipo, 12) + " · " + textoSeguro(r.tema, 20); });
-  sumar(videos, function () { return "videos"; }, function (v) { return "Video · " + v.tema; });
-  sumar(cursos, function () { return "cursos"; }, function (c) { return "Curso · " + c.tema; });
-  sumar(playlists, function () { return "playlists"; }, function (p) { return "Playlist · " + p.categoria; });
-  sumar(noticias, function () { return "noticias"; }, function (n) { return "Noticia · " + n.tema; });
-  sumar(admisiones, function (r) { return String(r.tipo).toLowerCase() === "pdf" ? "adm-materias" : "adm-drive"; }, function (r) { return "Admisiones · " + textoSeguro(r.tipo, 12) + " · " + textoSeguro(r.tema, 20); });
-  sumar(videosAdm, function () { return "adm-videos"; }, function (v) { return "Admisiones · Video · " + v.tema; });
-  return out.sort(function (a, b) { return a.fecha < b.fecha ? 1 : (a.fecha > b.fecha ? -1 : 0); }).slice(0, 6);
-}
-
-var reducidoLobby = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-function pintarLobby() {
-  var caja = document.getElementById("lobby-explora");
-  caja.textContent = "";
-  atajosExtras().forEach(function (a) {
-    var t = el("a", "ex");
-    t.href = "#" + a.id; t.setAttribute("data-ir", a.id);
-    var ilu = el("div", "ex-ilu");
-    ilu.style.background = fondoDegradado(a.color);
-    ilu.innerHTML = a.ilu;
-    var cuerpo = el("div", "ex-cuerpo");
-    cuerpo.appendChild(el("h3", "", a.titulo)); cuerpo.appendChild(el("p", "", a.texto));
-    var pie = el("div", "ex-pie");
-    var cuenta = el("span"); cuenta.appendChild(el("b", "", String(a.n))); cuenta.appendChild(document.createTextNode(" " + a.unidad));
-    pie.appendChild(cuenta); pie.appendChild(el("span", "", "Abrir →"));
-    cuerpo.appendChild(pie);
-    t.appendChild(ilu); t.appendChild(cuerpo);
-    caja.appendChild(t);
-  });
-  var nuevos = itemsNuevos(), cajaN = document.getElementById("lobby-nuevo-caja"), listaN = document.getElementById("lobby-nuevo");
-  cajaN.hidden = nuevos.length === 0;
-  listaN.textContent = "";
-  nuevos.forEach(function (x) {
-    var m = el("a", "mini");
-    m.href = "#" + x.ir; m.setAttribute("data-ir", x.ir);
-    m.appendChild(el("small", "", x.rotulo)); m.appendChild(el("h4", "", x.titulo));
-    marcaNuevo(m);
-    listaN.appendChild(m);
-  });
-}
-
-(function cintaDeMaterias() {
-  var vistos = {}, nombres = [];
-  [recursos, videos, cursos, admisiones, videosAdm].forEach(function (lista) {
-    lista.forEach(function (x) {
-      var k = normalizar(x.tema);
-      if (!vistos[k]) { vistos[k] = true; nombres.push(x.tema); }
-    });
-  });
-  var caja = document.getElementById("cinta");
-  for (var vuelta = 0; vuelta < 2; vuelta++) for (var rep = 0; rep < 2; rep++) nombres.forEach(function (n) { caja.appendChild(el("span", "", n)); });
-})();
-
-var lobbyControl = (function () {
-  var hero = document.getElementById("lobby-hero"), palabra = document.getElementById("lobby-palabra");
-  var frases = ["guías claras", "videos útiles", "cursos completos", "carpetas de exámenes"], idx = 0, reloj = 0;
-  hero.addEventListener("pointermove", function (e) {
-    var r = hero.getBoundingClientRect();
-    hero.style.setProperty("--px", (((e.clientX - r.left) / r.width - .5) * 2).toFixed(3));
-    hero.style.setProperty("--py", (((e.clientY - r.top) / r.height - .5) * 2).toFixed(3));
-  });
-  hero.addEventListener("pointerleave", function () { hero.style.setProperty("--px", 0); hero.style.setProperty("--py", 0); });
-  return {
-    iniciar: function () {
-      if (reloj || reducidoLobby) return;
-      reloj = setInterval(function () {
-        palabra.classList.add("sale");
-        setTimeout(function () { idx = (idx + 1) % frases.length; palabra.textContent = frases[idx]; palabra.classList.remove("sale"); }, 380);
-      }, 2800);
-    },
-    parar: function () { clearInterval(reloj); reloj = 0; }
-  };
-})();
-vistas.inicio = { render: pintarLobby };
-
 var cajaRecursos = document.getElementById("caja-recursos");
 var barraPestanas = document.getElementById("pestanas");
 
 (function construirMenus() {
-  var cajas = { recursos: cajaRecursos, admisiones: document.getElementById("caja-admisiones") };
-  var grupos = {};
+  var grupoActual = "";
   secciones.forEach(function (s) {
-    var caja = cajas[s.menu];
-    if (caja) {
-      if (s.grupo !== grupos[s.menu]) {
-        if (grupos[s.menu] !== undefined) caja.appendChild(el("div", "menu-sep"));
-        caja.appendChild(el("span", "menu-grupo", s.grupo));
-        grupos[s.menu] = s.grupo;
-      }
-      var a = el("a");
-      a.href = "#" + s.id; a.setAttribute("data-ir", s.id);
-      a.appendChild(el("span", "menu-titulo", s.nombre));
-      a.appendChild(el("span", "menu-dato", s.dato));
-      caja.appendChild(a);
+    if (s.grupo !== grupoActual) {
+      if (grupoActual !== "") cajaRecursos.appendChild(el("div", "menu-sep"));
+      cajaRecursos.appendChild(el("span", "menu-grupo", s.grupo));
+      grupoActual = s.grupo;
     }
-    if (!s.sinPestana) {
-      var p = el("a", "", s.nombre);
-      p.href = "#" + s.id; p.setAttribute("data-ir", s.id);
-      barraPestanas.appendChild(p);
-    }
+    var a = el("a");
+    a.href = "#" + s.id; a.setAttribute("data-ir", s.id);
+    a.appendChild(el("span", "menu-titulo", s.nombre));
+    a.appendChild(el("span", "menu-dato", s.dato));
+    cajaRecursos.appendChild(a);
+    // pestañas de celular
+    var p = el("a", "", s.nombre);
+    p.href = "#" + s.id; p.setAttribute("data-ir", s.id);
+    barraPestanas.appendChild(p);
   });
 })();
 
-(function construirPie() {
+(function construirPie() {   
   var caja = document.getElementById("pie-links");
   secciones.forEach(function (sec) {
-    if (sec.id === "inicio") return;
-    var a = el("a", "", sec.nombrePie || sec.nombre);
+    var a = el("a", "", sec.nombre);
     a.href = "#" + sec.id; a.setAttribute("data-ir", sec.id);
     caja.appendChild(a);
   });
 })();
 
-var SECCIONES_CON_SUGERENCIA = ["materias", "drive", "videos", "cursos", "adm-materias", "adm-drive", "adm-videos"];
+var SECCIONES_CON_SUGERENCIA = ["materias", "guias", "videos", "cursos"];
 var vistaActual = "";
 function nombreDesdeHash() {
   var h = location.hash.replace("#", "");
-  if (h === "recursos" || h === "guias") h = "materias";
-  if (h === "admisiones") h = "adm-materias";
+  if (h === "recursos") return "materias";   
   return secciones.some(function (s) { return s.id === h; }) ? h : "";
 }
 function mostrarVista(id) {
@@ -1094,9 +871,6 @@ function mostrarVista(id) {
     if (a.getAttribute("data-ir") === id) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
   });
   vistas[id].render();
-  document.getElementById("cabecera").hidden = id === "inicio";
-  document.getElementById("menu-admisiones").classList.toggle("activo", id.indexOf("adm-") === 0);
-  if (id === "inicio") lobbyControl.iniciar(); else lobbyControl.parar();
   document.getElementById("contacto").hidden = SECCIONES_CON_SUGERENCIA.indexOf(id) === -1;
   var activa = barraPestanas.querySelector('[aria-current="page"]');
   if (activa) barraPestanas.scrollLeft = activa.offsetLeft - barraPestanas.clientWidth / 2 + activa.clientWidth / 2;
@@ -1120,7 +894,7 @@ document.addEventListener("click", function (e) {
   if (destino.hidden) destino = document.getElementById("pie");
   destino.scrollIntoView({ behavior: "smooth", block: "center" });
 });
-function alCambiarRuta() { var n = nombreDesdeHash() || "inicio"; if (n !== vistaActual) mostrarVista(n); }
+function alCambiarRuta() { var n = nombreDesdeHash() || "materias"; if (n !== vistaActual) mostrarVista(n); }   // sin # = Materias
 window.addEventListener("popstate", alCambiarRuta);
 window.addEventListener("hashchange", alCambiarRuta);
 
@@ -1154,7 +928,7 @@ menus.forEach(function (m) {
 document.addEventListener("click", function (e) { if (!e.target.closest(".menu")) cerrarMenus(); });
 document.addEventListener("keydown", function (e) { if (e.key === "Escape") cerrarMenus(); });
 
-mostrarVista(nombreDesdeHash() || "inicio");   
+mostrarVista(nombreDesdeHash() || "materias");   
 
 var urlSugerencias = "https://script.google.com/macros/s/AKfycbzkuBirgytLrb3KRXrOdpXNzGXJ1nYdv6W9ofejgCzv7gP5eRtLBL3s1kxlypNzzBb3Xg/exec";
 
