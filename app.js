@@ -373,10 +373,10 @@ var secciones = [
   { id: "materias",  nombre: "Materias",  dato: "Guías en PDF por materia",  grupo: "Del semestre", menu: "recursos" },
   { id: "drive",     nombre: "Drive",     dato: "Exámenes y ejercicios",     grupo: "Del semestre", menu: "recursos" },
   { id: "videos",    nombre: "Videos",    dato: "Clases en video",           grupo: "Del semestre", menu: "recursos" },
-  { id: "cursos",    nombre: "Cursos" },
-  { id: "noticias",  nombre: "Noticias" },
-  { id: "eventos",   nombre: "Eventos próximos" },
-  { id: "playlists", nombre: "Playlists" },
+  { id: "cursos",    nombre: "Cursos",    dato: "Cursos completos",              grupo: "Para complementar", menu: "extra" },
+  { id: "eventos",   nombre: "Eventos próximos", dato: "Eventos de ESPOL y nacionales", grupo: "Para complementar", menu: "extra" },
+  { id: "noticias",  nombre: "Noticias",  dato: "Información del mundo STEM",    grupo: "Para complementar", menu: "extra" },
+  { id: "playlists", nombre: "Playlists", dato: "Música para tu estudio",        grupo: "Para complementar", menu: "extra" },
   { id: "adm-materias", nombre: "Materias", nombrePie: "Admisiones · Materias", dato: "Guías en PDF del pre",          grupo: "Solo para el pre de ESPOL", menu: "admisiones", sinPestana: true },
   { id: "adm-drive",    nombre: "Drive",    nombrePie: "Admisiones · Drive",    dato: "Exámenes y ejercicios del pre", grupo: "Solo para el pre de ESPOL", menu: "admisiones", sinPestana: true },
   { id: "adm-videos",   nombre: "Videos",   nombrePie: "Admisiones · Videos",   dato: "Clases para prepararte",        grupo: "Solo para el pre de ESPOL", menu: "admisiones", sinPestana: true }
@@ -1130,8 +1130,7 @@ var cajaRecursos = document.getElementById("caja-recursos");
 var barraPestanas = document.getElementById("pestanas");
 
 (function construirMenus() {
-  var cajas = { recursos: cajaRecursos, admisiones: document.getElementById("caja-admisiones") };
-  var grupos = {};
+  var cajas = { recursos: cajaRecursos, admisiones: document.getElementById("caja-admisiones"), extra: document.getElementById("caja-extra") };  var grupos = {};
   secciones.forEach(function (s) {
     var caja = cajas[s.menu];
     if (caja) {
@@ -1182,6 +1181,7 @@ function mostrarVista(id) {
   document.getElementById("cabecera").hidden = id === "inicio";
   if (id === "inicio") lobbyControl.iniciar(); else lobbyControl.parar();
   document.getElementById("menu-admisiones").classList.toggle("activo", id.indexOf("adm-") === 0);
+  document.getElementById("menu-extra").classList.toggle("activo", ["cursos", "eventos", "noticias", "playlists"].indexOf(id) !== -1);
   document.getElementById("contacto").hidden = SECCIONES_CON_SUGERENCIA.indexOf(id) === -1;
   var activa = barraPestanas.querySelector('[aria-current="page"]');
   if (activa) barraPestanas.scrollLeft = activa.offsetLeft - barraPestanas.clientWidth / 2 + activa.clientWidth / 2;
