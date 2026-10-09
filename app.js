@@ -279,12 +279,12 @@ document.getElementById("cookies-no").addEventListener("click", function () { el
 if (leerCookie("gm_consent") === "") cajaCookies.hidden = false;
 
 var secciones = [
-  { id: "materias",  nombre: "Materias",  dato: "Material por materia", grupo: "Estudio" },
-  { id: "guias",     nombre: "Guías",     dato: "Guías y resúmenes",              grupo: "Estudio" },
-  { id: "videos",    nombre: "Videos",    dato: "Clases en video",                 grupo: "Estudio" },
-  { id: "cursos",    nombre: "Cursos",    dato: "Cursos completos",        grupo: "Estudio" },
-  { id: "playlists", nombre: "Playlists", dato: "Música para tu estudio",       grupo: "Extras" },
-  { id: "noticias",  nombre: "Noticias",  dato: "Información del mundo STEM",         grupo: "Extras" },
+  { id: "materias",  nombre: "Materias",  dato: "Guías en PDF por materia", grupo: "Estudio" },
+  { id: "drive",     nombre: "Drive",     dato: "Exámenes y ejercicios",    grupo: "Estudio" },
+  { id: "videos",    nombre: "Videos",    dato: "Clases en video",          grupo: "Estudio" },
+  { id: "cursos",    nombre: "Cursos",    dato: "Cursos completos",         grupo: "Estudio" },
+  { id: "playlists", nombre: "Playlists", dato: "Música para tu estudio",   grupo: "Extras" },
+  { id: "noticias",  nombre: "Noticias",  dato: "Información del mundo STEM", grupo: "Extras" },
   { id: "eventos",   nombre: "Eventos próximos", dato: "Eventos de ESPOL y nacionales", grupo: "Extras" }
 ];
 
@@ -431,41 +431,110 @@ function pintarRecursos(cont, lista, consulta, vacio) {
     cont.appendChild(t);
   });
 }
-(function () {   // MATERIAS
-  var sec = document.getElementById("vista-materias");
-  var cont = sec.querySelector("[data-contenido]"), res = sec.querySelector("[data-resumen]");
-  var f = crearFiltro(sec, "Buscar materia, tema o archivo…", function () { render(); }, "gm_tema");
-  f.poner(unicos(recursos, "tema").concat(unicos(recursos, "tipo")));
-function render() {
-    var e = f.estado;
-    var lista = recursos.filter(function (r) {
-      var pasa = e.tema === "Todos" || r.tema === e.tema || r.tipo.toLowerCase() === e.tema.toLowerCase();
-      return pasa && coincide(e.consulta, [r.titulo, r.desc, r.tema, r.tipo]);
-    });
-    pintarRecursos(cont, lista, e.consulta, "Todavía no hay material en este tema.");
-    textoResumen(res, lista.length, e.consulta);
-  }
-  ponerActualizado(sec, recursos);
-  vistas.materias = { render: render };
-})();
 
-(function () {   
-  var base = recursos.filter(function (r) { return r.guia; });
-  var sec = document.getElementById("vista-guias");
+function masNuevosPrimero(a, b) {
+  var fa = a.fecha || "", fb = b.fecha || "";
+  return fa < fb ? 1 : (fa > fb ? -1 : 0);
+}
+
+function crearCarrete() {
+  var raiz = el("div", "carrete");
+  var izq = el("button", "flecha flecha-izq", "❮"); izq.type = "button"; izq.setAttribute("aria-label", "Ver videos anteriores");
+  var der = el("button", "flecha flecha-der", "❯"); der.type = "button"; der.setAttribute("aria-label", "Ver más videos");
+  var pista = el("div", "carrete-pista");
+  raiz.appendChild(izq); raiz.appendChild(pista); raiz.appendChild(der);
+
+  function revisar() {
+    var maximo = pista.scrollWidth - pista.clientWidth;
+    izq.disabled = pista.scrollLeft <= 2;
+    der.disabled = pista.scrollLeft >= maximo - 2;
+  }
+  izq.addEventListener("click", function () { pista.scrollBy({ left: -pista.clientWidth * 0.8, behavior: "smooth" }); });
+  der.addEventListener("click", function () { pista.scrollBy({ left: pista.clientWidth * 0.8, behavior: "smooth" }); });
+  pista.addEventListener("scroll", revisar);
+  window.addEventListener("resize", revisar);
+
+  var arrastrando = false, seMovio = false, inicioX = 0, inicioScroll = 0;
+  pista.addEventListener("mousedown", function (e) { arrastrando = true; seMovio = false; inicioX = e.pageX; inicioScroll = pista.scrollLeft; });
+  window.addEventListener("mousemove", function (e) {
+    if (!arrastrando) return;
+    var d = e.pageX - inicioX;
+    if (Math.abs(d) > 5) { seMovio = true; pista.style.scrollSnapType = "none"; }
+    if (seMovio) pista.scrollLeft = inicioScroll - d;
+  });
+  window.addEventListener("mouseup", function () { if (!arrastrando) return; arrastrando = false; pista.style.scrollSnapType = ""; });
+  pista.addEventListener("click", function (e) { if (seMovio) { e.preventDefault(); seMovio = false; } }, true);
+
+  return {
+    raiz: raiz,
+    pintar: function (lista, mostrarTema) {
+      pista.textContent = "";
+      lista.forEach(function (v) {
+        var a = el("a", "video");
+        a.href = "https://www.youtube.com/watch?v=" + v.id; a.target = "_blank"; a.rel = "noopener noreferrer";
+        var mini = el("div", "miniatura");
+        mini.style.background = fondoDegradado(v.color);
+        var img = el("img");
+        img.src = "https://i.ytimg.com/vi/" + v.id + "/hqdefault.jpg"; img.alt = ""; img.loading = "lazy"; img.draggable = false; img.referrerPolicy = "no-referrer";
+        img.addEventListener("error", function () { img.remove(); });
+        mini.appendChild(img); mini.appendChild(el("span", "play"));
+        if (mostrarTema) mini.appendChild(el("span", "video-tema", v.tema));
+        a.appendChild(mini); a.appendChild(el("span", "video-titulo", v.titulo)); a.appendChild(el("span", "video-canal", v.canal));
+        if (esNuevo(v.fecha)) marcaNuevo(a);
+        pista.appendChild(a);
+      });
+      pista.scrollLeft = 0;
+      revisar();
+    }
+  };
+}
+
+function crearRecomendados(seccion, fuente) {
+  var validos = fuente.filter(function (v) { return idVideoOk(v.id); });
+  var caja = el("div", "recomendados");
+  caja.hidden = true;
+  var titulo = el("h3", "grupo-titulo", "Videos recomendados para ti");
+  var chica = el("small", "");
+  titulo.appendChild(chica);
+  var carrete = crearCarrete();
+  caja.appendChild(titulo); caja.appendChild(carrete.raiz);
+  seccion.appendChild(caja);
+  return {
+    pintar: function (resultados, buscando) {
+      var temas = buscando ? unicos(resultados, "tema") : [];
+      var lista = validos.filter(function (v) { return temas.indexOf(v.tema) !== -1; }).sort(masNuevosPrimero).slice(0, 8);
+      caja.hidden = lista.length === 0;
+      if (lista.length === 0) return;
+      chica.textContent = "de " + temas.join(", ");
+      carrete.pintar(lista, temas.length > 1);
+    }
+  };
+}
+
+function crearVistaRecursos(idSeccion, base, placeholder, vacio, fuenteVideos, cookieTema) {
+  var sec = document.getElementById("vista-" + idSeccion);
   var cont = sec.querySelector("[data-contenido]"), res = sec.querySelector("[data-resumen]");
-  var f = crearFiltro(sec, "Buscar guía o materia…", function () { render(); });
+  var f = crearFiltro(sec, placeholder, function () { render(); }, cookieTema);
   f.poner(unicos(base, "tema"));
+  var rec = crearRecomendados(sec, fuenteVideos);
   function render() {
     var e = f.estado;
     var lista = base.filter(function (r) {
       return (e.tema === "Todos" || r.tema === e.tema) && coincide(e.consulta, [r.titulo, r.desc, r.tema]);
-    });
-    pintarRecursos(cont, lista, e.consulta, "Todavía no hay guías en esta materia.");
+    }).sort(masNuevosPrimero);
+    pintarRecursos(cont, lista, e.consulta, vacio);
     textoResumen(res, lista.length, e.consulta);
+    rec.pintar(lista, e.tema !== "Todos" || e.consulta.trim() !== "");
   }
   ponerActualizado(sec, base);
-  vistas.guias = { render: render };
-})();
+  vistas[idSeccion] = { render: render };
+}
+
+crearVistaRecursos("materias", recursos.filter(function (r) { return r.tipo === "PDF"; }),
+  "Buscar materia o guía…", "Todavía no hay guías en esta materia.", videos, "gm_tema");
+crearVistaRecursos("drive", recursos.filter(function (r) { return r.tipo === "Drive"; }),
+  "Buscar materia o carpeta…", "Todavía no hay carpetas en esta materia.", videos);
+
 
 (function () {   
   var sec = document.getElementById("vista-videos");
@@ -858,11 +927,11 @@ var barraPestanas = document.getElementById("pestanas");
   });
 })();
 
-var SECCIONES_CON_SUGERENCIA = ["materias", "guias", "videos", "cursos"];
+var SECCIONES_CON_SUGERENCIA = ["materias", "drive", "videos", "cursos"];
 var vistaActual = "";
 function nombreDesdeHash() {
   var h = location.hash.replace("#", "");
-  if (h === "recursos") return "materias";   
+  if (h === "recursos" || h === "guias") return "materias";   
   return secciones.some(function (s) { return s.id === h; }) ? h : "";
 }
 function mostrarVista(id) {
