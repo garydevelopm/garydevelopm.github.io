@@ -43,12 +43,21 @@
 <div class="fondo" aria-hidden="true"><span class="humo"></span><span class="humo"></span><span class="humo"></span><span class="humo"></span><span class="humo"></span><span class="humo"></span></div>
 <div class="wrap">
     <header class="nav">
-    <a class="logo" href="#inicio"><svg class="logo-mark" viewBox="0 0 24 24" aria-hidden="true"><path class="vapor v1" d="M8 2.5c-1 1 1 2 0 3.2"></path><path class="vapor v2" d="M12 2.5c-1 1 1 2 0 3.2"></path><path class="vapor v3" d="M16 2.5c-1 1 1 2 0 3.2"></path><path d="M4.5 9h12v5.2a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5V9z"></path><path d="M16.5 10.5h1.2a2.3 2.3 0 0 1 0 4.6h-1.4"></path><path d="M6 21.5h9"></path></svg>KnowCup</a>
+    <a class="logo" href="#inicio" data-ir="inicio"><svg class="logo-mark" viewBox="0 0 24 24" aria-hidden="true"><path class="vapor v1" d="M8 2.5c-1 1 1 2 0 3.2"></path><path class="vapor v2" d="M12 2.5c-1 1 1 2 0 3.2"></path><path class="vapor v3" d="M16 2.5c-1 1 1 2 0 3.2"></path><path d="M4.5 9h12v5.2a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5V9z"></path><path d="M16.5 10.5h1.2a2.3 2.3 0 0 1 0 4.6h-1.4"></path><path d="M6 21.5h9"></path></svg>KnowCup</a>
     <nav class="nav-links" aria-label="Principal">
 
+      <div class="menu" id="menu-inicio">
+        <a href="#inicio" class="menu-btn" data-ir="inicio">Inicio</a>
+      </div>
+
       <div class="menu" id="menu-recursos">
-        <button type="button" class="menu-btn" aria-haspopup="true" aria-expanded="false" aria-controls="caja-recursos">Recursos <span class="caret" aria-hidden="true"></span></button>
+        <button type="button" class="menu-btn" aria-haspopup="true" aria-expanded="false" aria-controls="caja-recursos">Contenido de semestre <span class="caret" aria-hidden="true"></span></button>
         <div class="caja" id="caja-recursos"></div>
+      </div>
+
+      <div class="menu" id="menu-admisiones">
+        <button type="button" class="menu-btn" aria-haspopup="true" aria-expanded="false" aria-controls="caja-admisiones">Contenido de admisiones <span class="caret" aria-hidden="true"></span></button>
+        <div class="caja" id="caja-admisiones"></div>
       </div>
 
       <div class="menu" id="menu-contacto">
@@ -72,7 +81,7 @@
 
   <main>
     <noscript><p style="text-align:center;color:#8c93a3;padding:24px 0">KnowCup necesita JavaScript para mostrar los recursos. Actívalo en tu navegador.</p></noscript>
-    <div class="hero" id="inicio">
+    <div class="hero" id="cabecera">
       <div class="big" aria-hidden="true">KnowCup</div>
       <div class="hero-tag">
       <h1><span class="sr-only">KnowCup: </span>Recursos académicos para estudiar mejor</h1>        <p>PDFs, videos, cursos y más de tus materias, servidos en un solo lugar.</p>
@@ -83,19 +92,74 @@
           <nav class="pestanas" id="pestanas" aria-label="Secciones"></nav>
 
     
+    <section class="vista" id="vista-inicio" hidden>
+      <div class="lobby-hero" id="lobby-hero">
+      <div class="lobby-escena" aria-hidden="true">
+        <svg viewBox="0 0 520 580" focusable="false">
+          <defs>
+            <linearGradient id="gVapor" gradientUnits="userSpaceOnUse" x1="0" y1="320" x2="0" y2="36"><stop offset="0" stop-color="#ffd6a5" stop-opacity=".95"></stop><stop offset=".5" stop-color="#9ccbea" stop-opacity=".8"></stop><stop offset="1" stop-color="#b9a4ff" stop-opacity="0"></stop></linearGradient>
+            <linearGradient id="gTaza" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9ccbea" stop-opacity=".26"></stop><stop offset="1" stop-color="#b9a4ff" stop-opacity=".08"></stop></linearGradient>
+            <linearGradient id="gCafe" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f6b56c"></stop><stop offset=".6" stop-color="#c9732f"></stop><stop offset="1" stop-color="#8a4a1e"></stop></linearGradient>
+          </defs>
+          <g class="capa">
+            <circle cx="260" cy="330" r="235" fill="none" stroke="rgba(156,203,234,.14)" stroke-dasharray="2 7"></circle>
+            <circle cx="260" cy="330" r="205" fill="none" stroke="rgba(255,190,130,.10)"></circle>
+            <ellipse class="onda" cx="247" cy="508" rx="150" ry="22"></ellipse>
+            <ellipse class="onda o2" cx="247" cy="508" rx="150" ry="22"></ellipse>
+            <ellipse class="onda o3" cx="247" cy="508" rx="150" ry="22"></ellipse>
+            <path class="vapor-flujo" d="M205 318C175 268 235 232 205 186S235 116 211 58"></path>
+            <path class="vapor-flujo b" d="M248 316C218 260 278 224 248 172S278 96 252 38"></path>
+            <path class="vapor-flujo c" d="M292 318C262 270 322 238 292 194S320 126 296 78"></path>
+            <g transform="translate(90 185) scale(15)">
+              <path d="M4.5 9h12v5.2a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5V9z" fill="url(#gTaza)"></path>
+              <ellipse class="cafe" cx="10.5" cy="9.15" rx="5.9" ry=".75" fill="url(#gCafe)"></ellipse>
+              <path class="taza-trazo" d="M4.5 9h12v5.2a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5V9z"></path>
+              <path class="taza-trazo" d="M16.5 10.5h1.2a2.3 2.3 0 0 1 0 4.6h-1.4"></path>
+              <path class="taza-trazo" d="M3.6 21.5h13.8"></path>
+            </g>
+          </g>
+          <g class="capa-sim">
+          <text class="sim" x="170" y="302" text-anchor="middle" font-size="34" fill="#ffd6a5" style="--d:-4s;--t:8.5s;--dx:-62px">π</text>
+          <text class="sim" x="205" y="302" text-anchor="middle" font-size="30" fill="#9ccbea" style="--d:-1s;--t:9s;--dx:48px">∑</text>
+          <text class="sim" x="240" y="302" text-anchor="middle" font-size="28" fill="#b9a4ff" style="--d:-6.5s;--t:7.5s;--dx:-40px">{ }</text>
+          <text class="sim" x="275" y="302" text-anchor="middle" font-size="34" fill="#ffd6a5" style="--d:-2.5s;--t:9.5s;--dx:56px">∫</text>
+          <text class="sim" x="305" y="302" text-anchor="middle" font-size="24" fill="#9ccbea" style="--d:-7.5s;--t:8s;--dx:-52px"></></text>
+          <text class="sim" x="250" y="302" text-anchor="middle" font-size="22" fill="#b9a4ff" style="--d:-5s;--t:10s;--dx:60px">E=mc²</text>
+          <text class="sim" x="190" y="302" text-anchor="middle" font-size="28" fill="#9ccbea" style="--d:-8.5s;--t:7.8s;--dx:-44px">√x</text>
+          <text class="sim" x="320" y="302" text-anchor="middle" font-size="30" fill="#ffd6a5" style="--d:-3.2s;--t:8.8s;--dx:-58px">Δ</text>
+          <text class="sim" x="225" y="302" text-anchor="middle" font-size="24" fill="#6df0a0" style="--d:-9.5s;--t:9.2s;--dx:42px">01</text>
+          <text class="sim" x="290" y="302" text-anchor="middle" font-size="32" fill="#b9a4ff" style="--d:-0.4s;--t:8.2s;--dx:-50px">λ</text>
+          </g>
+        </svg>
+      </div>
+        <div class="lobby-texto">
+          <span class="lobby-chip">Recursos académicos · ESPOL</span>
+          <h1 class="lobby-titulo"><span class="sr-only">KnowCup: </span>Estudia con<span class="linea2"><span class="palabra" id="lobby-palabra">guías claras</span></span></h1>
+          <p class="lobby-sub">PDFs, carpetas de Drive, videos y cursos de tus materias, organizados en un solo lugar y gratis para toda la comunidad.</p>
+          <div class="lobby-datos"><span>Gratis</span><span>Sin registro</span><span>Hecho por estudiantes</span></div>
+        </div>
+      </div>
+      <div class="cinta" aria-hidden="true"><div class="cinta-pista" id="cinta"></div></div>
+      <h3 class="grupo-titulo">Explora <small>más para tu estudio</small></h3>
+      <div class="explora" id="lobby-explora"></div>
+      <div id="lobby-nuevo-caja" hidden>
+        <h3 class="grupo-titulo">Lo nuevo <small>agregado hace poco</small></h3>
+        <div class="lobby-nuevo" id="lobby-nuevo"></div>
+      </div>
+    </section>
+
     <section class="vista" id="vista-materias" hidden>
       <h2 class="titulo-seccion">Materias</h2>
-      <p class="sub">Busca por materia o filtra por tema y descarga lo que necesites.</p>
+      <p class="sub">Guías en PDF de cada materia. Busca la materia que necesitas y descárgala.</p>
       <p class="actualizado" data-actualizado></p>
       <div data-filtro></div>
       <p class="resumen" data-resumen role="status" aria-live="polite"></p>
       <div class="grid" data-contenido></div>
     </section>
 
-    
-    <section class="vista" id="vista-guias" hidden>
-      <h2 class="titulo-seccion">Guías</h2>
-      <p class="sub">PDFs de guías y resúmenes de cada materia, listos para descargar.</p>
+    <section class="vista" id="vista-drive" hidden>
+      <h2 class="titulo-seccion">Drive</h2>
+      <p class="sub">Carpetas de Google Drive con exámenes, talleres y ejercicios de cada materia.</p>
       <p class="actualizado" data-actualizado></p>
       <div data-filtro></div>
       <p class="resumen" data-resumen role="status" aria-live="polite"></p>
@@ -158,6 +222,37 @@
       <div class="cuerpo-grid" data-contenido></div>
     </section>
 
+    <section class="vista" id="vista-adm-materias" hidden>
+      <span class="sello-adm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5L2 9z"></path><path d="M6 11.2V16c0 1.4 2.7 3 6 3s6-1.6 6-3v-4.8"></path><path d="M22 9v5"></path></svg>Solo para estudiantes del pre de ESPOL</span>
+      <h2 class="titulo-seccion">Admisiones · Materias</h2>
+      <p class="sub">Guías en PDF de las materias del pre, para prepararte antes de entrar a la universidad.</p>
+      <p class="actualizado" data-actualizado></p>
+      <div data-filtro></div>
+      <p class="resumen" data-resumen role="status" aria-live="polite"></p>
+      <div class="grid" data-contenido></div>
+    </section>
+
+    <section class="vista" id="vista-adm-drive" hidden>
+      <span class="sello-adm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5L2 9z"></path><path d="M6 11.2V16c0 1.4 2.7 3 6 3s6-1.6 6-3v-4.8"></path><path d="M22 9v5"></path></svg>Solo para estudiantes del pre de ESPOL</span>
+      <h2 class="titulo-seccion">Admisiones · Drive</h2>
+      <p class="sub">Carpetas de Google Drive con exámenes y ejercicios de práctica del pre.</p>
+      <p class="actualizado" data-actualizado></p>
+      <div data-filtro></div>
+      <p class="resumen" data-resumen role="status" aria-live="polite"></p>
+      <div class="grid" data-contenido></div>
+    </section>
+
+    <section class="vista" id="vista-adm-videos" hidden>
+      <span class="sello-adm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5L2 9z"></path><path d="M6 11.2V16c0 1.4 2.7 3 6 3s6-1.6 6-3v-4.8"></path><path d="M22 9v5"></path></svg>Solo para estudiantes del pre de ESPOL</span>
+      <h2 class="titulo-seccion">Admisiones · Videos</h2>
+      <p class="sub">Clases en video para preparar las materias del pre.</p>
+      <p class="actualizado" data-actualizado></p>
+      <div data-filtro></div>
+      <p class="resumen" data-resumen role="status" aria-live="polite"></p>
+      <p class="empty" data-vacio hidden></p>
+      <div data-carrete></div>
+    </section>
+
     <section id="contacto" class="contacto">
       <div class="cta">
         <div class="orb" aria-hidden="true"></div>
@@ -176,7 +271,7 @@
     <footer class="pie" id="pie">
     <div class="pie-grid">
       <div>
-        <a class="logo" href="#inicio"><svg class="logo-mark" viewBox="0 0 24 24" aria-hidden="true"><path class="vapor v1" d="M8 2.5c-1 1 1 2 0 3.2"></path><path class="vapor v2" d="M12 2.5c-1 1 1 2 0 3.2"></path><path class="vapor v3" d="M16 2.5c-1 1 1 2 0 3.2"></path><path d="M4.5 9h12v5.2a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5V9z"></path><path d="M16.5 10.5h1.2a2.3 2.3 0 0 1 0 4.6h-1.4"></path><path d="M6 21.5h9"></path></svg>KnowCup</a>
+        <a class="logo" href="#inicio" data-ir="inicio"><svg class="logo-mark" viewBox="0 0 24 24" aria-hidden="true"><path class="vapor v1" d="M8 2.5c-1 1 1 2 0 3.2"></path><path class="vapor v2" d="M12 2.5c-1 1 1 2 0 3.2"></path><path class="vapor v3" d="M16 2.5c-1 1 1 2 0 3.2"></path><path d="M4.5 9h12v5.2a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5V9z"></path><path d="M16.5 10.5h1.2a2.3 2.3 0 0 1 0 4.6h-1.4"></path><path d="M6 21.5h9"></path></svg>KnowCup</a>
         <p class="pie-frase">Recursos académicos para estudiar mejor, en un solo lugar.</p>
       </div> 
       <div>   
