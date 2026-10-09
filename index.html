@@ -50,7 +50,12 @@
         <button type="button" class="menu-btn" aria-haspopup="true" aria-expanded="false" aria-controls="caja-recursos">Recursos <span class="caret" aria-hidden="true"></span></button>
         <div class="caja" id="caja-recursos"></div>
       </div>
-
+      
+      <div class="menu" id="menu-admisiones">
+        <button type="button" class="menu-btn" aria-haspopup="true" aria-expanded="false" aria-controls="caja-admisiones">Contenido de admisiones <span class="caret" aria-hidden="true"></span></button>
+        <div class="caja" id="caja-admisiones"></div>
+      </div>
+      
       <div class="menu" id="menu-contacto">
         <a href="#contacto" class="menu-btn">Contacto <span class="caret" aria-hidden="true"></span></a>
         <div class="caja">
@@ -78,11 +83,9 @@
       <h1><span class="sr-only">KnowCup: </span>Recursos académicos para estudiar mejor</h1>        <p>PDFs, videos, cursos y más de tus materias, servidos en un solo lugar.</p>
       </div>
     </div>
-
-    
+ 
           <nav class="pestanas" id="pestanas" aria-label="Secciones"></nav>
-
-    
+ 
     <section class="vista" id="vista-materias" hidden>
       <h2 class="titulo-seccion">Materias</h2>
       <p class="sub">Guías en PDF de cada materia. Busca la materia que necesitas y descárgala.</p>
@@ -91,7 +94,6 @@
       <p class="resumen" data-resumen role="status" aria-live="polite"></p>
       <div class="grid" data-contenido></div>
     </section>
-
     
     <section class="vista" id="vista-drive" hidden>
       <h2 class="titulo-seccion">Drive</h2>
@@ -115,7 +117,6 @@
         <button type="button" class="flecha flecha-der" id="flecha-der" aria-label="Ver mas videos">&#10095;</button>
       </div>
     </section>
-
     
     <section class="vista" id="vista-cursos" hidden>
       <h2 class="titulo-seccion">Cursos</h2>
@@ -125,7 +126,6 @@
       <p class="resumen" data-resumen role="status" aria-live="polite"></p>
       <div class="cuerpo-grid" data-contenido></div>
     </section>
-
     
     <section class="vista" id="vista-playlists" hidden>
       <h2 class="titulo-seccion">Playlists</h2>
@@ -136,7 +136,6 @@
       <p class="resumen" data-resumen role="status" aria-live="polite"></p>
       <div data-contenido></div>
     </section>
-
     
     <section class="vista" id="vista-noticias" hidden>
       <h2 class="titulo-seccion">Noticias</h2>
@@ -147,7 +146,6 @@
       <div class="cuerpo-grid" data-contenido></div>
     </section>
 
-  
     <section class="vista" id="vista-eventos" hidden>
       <h2 class="titulo-seccion">Eventos próximos</h2>
       <p class="sub">Eventos de ESPOL y eventos tech de todo el país. Cada evento te lleva a su página oficial.</p>
@@ -157,6 +155,37 @@
       <div class="cuerpo-grid" data-contenido></div>
     </section>
 
+    <section class="vista" id="vista-adm-materias" hidden>
+      <span class="sello-adm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5L2 9z"></path><path d="M6 11.2V16c0 1.4 2.7 3 6 3s6-1.6 6-3v-4.8"></path><path d="M22 9v5"></path></svg>Solo para estudiantes del pre de ESPOL</span>
+      <h2 class="titulo-seccion">Admisiones · Materias</h2>
+      <p class="sub">Guías en PDF de las materias del pre, para prepararte antes de entrar a la universidad.</p>
+      <p class="actualizado" data-actualizado></p>
+      <div data-filtro></div>
+      <p class="resumen" data-resumen role="status" aria-live="polite"></p>
+      <div class="grid" data-contenido></div>
+    </section>
+
+<section class="vista" id="vista-adm-drive" hidden>
+      <span class="sello-adm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5L2 9z"></path><path d="M6 11.2V16c0 1.4 2.7 3 6 3s6-1.6 6-3v-4.8"></path><path d="M22 9v5"></path></svg>Solo para estudiantes del pre de ESPOL</span>
+      <h2 class="titulo-seccion">Admisiones · Drive</h2>
+      <p class="sub">Carpetas de Google Drive con exámenes y ejercicios de práctica del pre.</p>
+      <p class="actualizado" data-actualizado></p>
+      <div data-filtro></div>
+      <p class="resumen" data-resumen role="status" aria-live="polite"></p>
+      <div class="grid" data-contenido></div>
+    </section>
+
+<section class="vista" id="vista-adm-videos" hidden>
+      <span class="sello-adm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5L2 9z"></path><path d="M6 11.2V16c0 1.4 2.7 3 6 3s6-1.6 6-3v-4.8"></path><path d="M22 9v5"></path></svg>Solo para estudiantes del pre de ESPOL</span>
+      <h2 class="titulo-seccion">Admisiones · Videos</h2>
+      <p class="sub">Clases en video para preparar las materias del pre.</p>
+      <p class="actualizado" data-actualizado></p>
+      <div data-filtro></div>
+      <p class="resumen" data-resumen role="status" aria-live="polite"></p>
+      <p class="empty" data-vacio hidden></p>
+      <div data-carrete></div>
+    </section>
+    
     <section id="contacto" class="contacto">
       <div class="cta">
         <div class="orb" aria-hidden="true"></div>
