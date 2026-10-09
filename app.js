@@ -309,7 +309,7 @@ function coincide(consulta, campos) {
 function fechaValida(iso) { return typeof iso === "string" && /^\d{4}-\d{2}-\d{2}$/.test(iso); }
 function aFecha(iso) { var p = iso.split("-"); return new Date(+p[0], +p[1] - 1, +p[2]); }
 function fechaCorta(iso) { if (!fechaValida(iso)) return ""; return aFecha(iso).toLocaleDateString("es-EC", { day: "numeric", month: "short", year: "numeric" }); }
-function esNuevo(iso) { return fechaValida(iso) && (Date.now() - aFecha(iso).getTime()) / 86400000 <= 21; }   // "Nuevo" = últimos 21 días
+function esNuevo(iso) { return fechaValida(iso) && (Date.now() - aFecha(iso).getTime()) / 86400000 <= 21; }   
 
 function ponerActualizado(seccion, lista, prefijo) {
   var maxima = lista.reduce(function (m, x) { return fechaValida(x.fecha) && x.fecha > m ? x.fecha : m; }, "0000-00-00");
@@ -325,10 +325,10 @@ function mensajeVacio(consulta, tipo, porDefecto) {
   p.textContent = q ? "No encontré " + tipo + " para «" + q + "»." : porDefecto;
   return p;
 }
-function pildoraNuevo() { return el("span", "nuevo", "Nuevo"); }
+function marcaNuevo(tarjeta) { tarjeta.appendChild(el("span", "nuevo", "Nuevo")); }
 function fondoDegradado(color) { if (typeof color !== "number") color = 210; return "linear-gradient(135deg, hsl(" + color + " 45% 32%), hsl(" + (color + 40) + " 40% 14%))"; }
 
-function abrirEnlace(a, url) {   // solo enlaces https (o tus PDFs en pdfs/); si no hay enlace, el botón queda apagado
+function abrirEnlace(a, url) {   
   var seguro = urlSegura(url);
   if (seguro !== "") { a.href = seguro; a.target = "_blank"; a.rel = "noopener noreferrer"; }
   else { a.setAttribute("aria-disabled", "true"); a.tabIndex = -1; a.textContent = "Próximamente"; }
@@ -363,7 +363,7 @@ function crearFiltro(seccion, placeholder, alCambiar, cookieTema, etiqueta) {
   btnTodos.appendChild(caret);
 
   var buscador = el("div", "buscador");
-  buscador.innerHTML = ICONO_LUPA;                       // texto fijo, sin datos de usuario
+  buscador.innerHTML = ICONO_LUPA;                       
   var campo = el("input");
   campo.type = "search"; campo.placeholder = placeholder; campo.autocomplete = "off"; campo.maxLength = 60;
   campo.setAttribute("aria-label", placeholder);
@@ -384,7 +384,7 @@ function crearFiltro(seccion, placeholder, alCambiar, cookieTema, etiqueta) {
     interior.inert = !estado.abierto;
     caja.textContent = "";
     (etiqueta ? ["Todas"].concat(chips) : chips).forEach(function (t) {
-      var valor = (etiqueta && t === "Todas") ? "Todos" : t;   // "Todas" = quitar el filtro de categoría
+      var valor = (etiqueta && t === "Todas") ? "Todos" : t;  
       var b = el("button", "chip", t);
       b.type = "button";
       b.setAttribute("aria-pressed", String(valor === estado.tema));
@@ -393,8 +393,8 @@ function crearFiltro(seccion, placeholder, alCambiar, cookieTema, etiqueta) {
     });
   }
   btnTodos.addEventListener("click", function () {
-    if (!etiqueta && estado.tema !== "Todos") { estado.tema = "Todos"; estado.abierto = true; }   // volver a todo
-    else { estado.abierto = !estado.abierto; }                                                      // abrir / cerrar la fila
+    if (!etiqueta && estado.tema !== "Todos") { estado.tema = "Todos"; estado.abierto = true; }   
+    else { estado.abierto = !estado.abierto; }                                                      
     guardarTema(); pintar(); alCambiar();
   });
   campo.addEventListener("input", function () { estado.consulta = campo.value; borrar.hidden = campo.value === ""; alCambiar(); });
@@ -405,7 +405,7 @@ function crearFiltro(seccion, placeholder, alCambiar, cookieTema, etiqueta) {
     estado: estado,
     poner: function (lista) {
       chips = lista;
-      if (cookieTema && permiteCookies()) {   // recuerda el último tema elegido (solo si aceptó las cookies)
+      if (cookieTema && permiteCookies()) {  
         var guardado = leerCookie(cookieTema);
         if (guardado !== "Todos" && lista.indexOf(guardado) !== -1) { estado.tema = guardado; estado.abierto = true; }
       }
@@ -423,11 +423,11 @@ function pintarRecursos(cont, lista, consulta, vacio) {
     var t = el("article", "card");
     var fila = el("div", "fila-tag");
     fila.appendChild(el("span", "tag", textoSeguro(r.tipo, 12) + " · " + textoSeguro(r.tema, 20)));
-    if (esNuevo(r.fecha)) fila.appendChild(pildoraNuevo());
     var tipo = String(r.tipo).toLowerCase();
     var boton = el("a", "btn", tipo === "pdf" ? "Descargar PDF" : (tipo === "drive" ? "Abrir en Drive" : "Abrir enlace"));
     abrirEnlace(boton, r.url);
     t.appendChild(fila); t.appendChild(el("h3", "", r.titulo)); t.appendChild(el("p", "", r.desc)); t.appendChild(boton);
+    if (esNuevo(r.fecha)) marcaNuevo(t);
     cont.appendChild(t);
   });
 }
@@ -525,10 +525,10 @@ function render() {
       mini.style.background = fondoDegradado(v.color);
       var img = el("img");
       img.src = "https://i.ytimg.com/vi/" + v.id + "/hqdefault.jpg"; img.alt = ""; img.loading = "lazy"; img.draggable = false; img.referrerPolicy = "no-referrer";
-      img.addEventListener("error", function () { img.remove(); });    // si no carga, queda el degradado
+      img.addEventListener("error", function () { img.remove(); });   
       mini.appendChild(img); mini.appendChild(el("span", "play"));
       if (esTodos) mini.appendChild(el("span", "video-tema", v.tema));
-      if (esNuevo(v.fecha)) mini.appendChild(pildoraNuevo());
+      if (esNuevo(v.fecha)) marcaNuevo(a);
       a.appendChild(mini); a.appendChild(el("span", "video-titulo", v.titulo)); a.appendChild(el("span", "video-canal", v.canal));
       pista.appendChild(a);
     });
@@ -539,15 +539,15 @@ function render() {
   vistas.videos = { render: render };
 })();
 
-(function () {   // CURSOS (por categoría; "Todos" = del más nuevo al más viejo)
+(function () {   
   var sec = document.getElementById("vista-cursos");
   var cont = sec.querySelector("[data-contenido]"), res = sec.querySelector("[data-resumen]");
   var MESES_CORTO = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
   var f = crearFiltro(sec, "Buscar curso, categoría o plataforma…", function () { render(); });
-  f.poner(unicos(cursos, "tema"));   // las categorías salen solas del campo "tema" de cada curso
+  f.poner(unicos(cursos, "tema"));   
   var textoBoton = { "Video": "Ver curso", "Web": "Ir al curso ↗", "Playlist": "Ver playlist" };
 
-  function textoPublicado(p) {   // acepta "2026", "2018-03" o "2018-03-02"
+  function textoPublicado(p) {   
     if (/^\d{4}$/.test(p)) return p;
     if (/^\d{4}-\d{2}$/.test(p)) return MESES_CORTO[+p.slice(5, 7) - 1] + " " + p.slice(0, 4);
     return fechaCorta(p);
@@ -557,7 +557,7 @@ function render() {
     var e = f.estado;
     var lista = cursos.filter(function (c) {
       return (e.tema === "Todos" || c.tema === e.tema) && coincide(e.consulta, [c.titulo, c.desc, c.tema, c.plataforma, c.idioma, c.nivel]);
-    }).sort(function (a, b) {   // los más nuevos primero; los que no tienen "publicado", al final
+    }).sort(function (a, b) {   
       var pa = a.publicado || "", pb = b.publicado || "";
       return pa < pb ? 1 : (pa > pb ? -1 : 0);
     });
@@ -568,7 +568,7 @@ function render() {
       var t = el("article", "pcard");
       var portada = el("div", "portada");
       portada.style.background = fondoDegradado(c.color);
-      if (urlSegura(c.img).indexOf("https:") === 0) {   // miniatura del curso; si falla, queda el degradado
+      if (urlSegura(c.img).indexOf("https:") === 0) {   
         portada.classList.add("con-foto");
         var img = el("img"); img.src = urlSegura(c.img); img.alt = ""; img.loading = "lazy"; img.referrerPolicy = "no-referrer";
         img.addEventListener("error", function () { img.remove(); portada.classList.remove("con-foto"); });
@@ -576,7 +576,7 @@ function render() {
       }
       portada.appendChild(el("span", "portada-grande", textoSeguro(c.duracion, 14)));
       portada.appendChild(el("span", "portada-etq", c.plataforma));
-      if (esNuevo(c.fecha)) portada.appendChild(pildoraNuevo());
+      if (esNuevo(c.fecha)) marcaNuevo(t);
 
       var cuerpo = el("div", "pcuerpo");
       cuerpo.appendChild(el("span", "tag", c.tema));
@@ -598,7 +598,7 @@ function render() {
   vistas.cursos = { render: render };
 })();
 
-(function () {   // PLAYLISTS (agrupadas por ánimo)
+(function () {   
   var sec = document.getElementById("vista-playlists");
   var cont = sec.querySelector("[data-contenido]"), res = sec.querySelector("[data-resumen]");
   var f = crearFiltro(sec, "Buscar playlist…", function () { render(); });
@@ -620,18 +620,18 @@ function render() {
         var t = el("article", "pcard playlist");
         var portada = el("div", "portada");
         portada.style.background = fondoDegradado(p.color);
-        var foto = urlSegura(p.img) || miniaturaYoutube(p.url);   // foto: tu img, o la del video de YouTube
+        var foto = urlSegura(p.img) || miniaturaYoutube(p.url);   
         if (foto.indexOf("https:") === 0) {
           portada.classList.add("con-foto");
           var img = el("img"); img.src = foto; img.alt = ""; img.loading = "lazy"; img.referrerPolicy = "no-referrer";
-          img.addEventListener("error", function () { img.remove(); portada.classList.remove("con-foto"); });   // si no carga, queda el degradado
+          img.addEventListener("error", function () { img.remove(); portada.classList.remove("con-foto"); });   
           portada.appendChild(img);
         }
         var eq = el("span", "eq"); eq.setAttribute("aria-hidden", "true");
         for (var i = 0; i < 4; i++) eq.appendChild(el("i"));
         portada.appendChild(eq);
         portada.appendChild(el("span", "portada-etq", p.plataforma));
-        if (esNuevo(p.fecha)) portada.appendChild(pildoraNuevo());
+        if (esNuevo(p.fecha)) marcaNuevo(t);
         var cuerpo = el("div", "pcuerpo");
         cuerpo.appendChild(el("h3", "", p.titulo));
         cuerpo.appendChild(el("p", "", p.desc));
@@ -651,27 +651,27 @@ function render() {
   vistas.playlists = { render: render };
 })();
 
-(function () {   // NOTICIAS
+(function () {   
   var sec = document.getElementById("vista-noticias");
   var cont = sec.querySelector("[data-contenido]"), res = sec.querySelector("[data-resumen]");
   var MESES_LARGO = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
   var f = crearFiltro(sec, "Buscar noticia o tema…", function () { render(); }, null, "Categorías");
-  f.poner(unicos(noticias, "tema"));   // las categorías salen solas del campo "tema" de cada noticia
+  f.poner(unicos(noticias, "tema"));   
 
-  // años que existen en tus noticias (de más nuevo a más viejo)
+  
   var anios = [];
   noticias.forEach(function (n) {
     if (fechaValida(n.fecha) && anios.indexOf(n.fecha.slice(0, 4)) === -1) anios.push(n.fecha.slice(0, 4));
   });
   anios.sort().reverse();
-  // el "año presente": el de hoy si tiene noticias; si no, el más nuevo que tengas
+  
   var anioActual = anios.indexOf(String(new Date().getFullYear())) !== -1 ? String(new Date().getFullYear()) : (anios[0] || "");
-  var anioElegido = "auto";   // "auto" = todavía no tocó la fila de años
+  var anioElegido = "auto";   
 
-  function anioFiltro() {   // qué año se está mostrando de verdad
+  function anioFiltro() { 
     if (anioElegido !== "auto") return anioElegido;
     var e = f.estado;
-    // sin filtros → solo el año presente. Si elige una categoría o busca algo → se buscan en todos los años
+    
     return (e.tema === "Todos" && e.consulta.trim() === "") ? anioActual : "Todos";
   }
 
@@ -702,7 +702,7 @@ function render() {
       return (e.tema === "Todos" || n.tema === e.tema)
           && (anio === "Todos" || anioNota === anio)
           && coincide(e.consulta, [n.titulo, n.resumen, n.fuente, n.tema]);
-    }).sort(function (a, b) {   // las más nuevas primero; las que no tienen fecha, al final
+    }).sort(function (a, b) {  
       var fa = fechaValida(a.fecha) ? a.fecha : "", fb = fechaValida(b.fecha) ? b.fecha : "";
       return fa < fb ? 1 : (fa > fb ? -1 : 0);
     });
@@ -712,20 +712,20 @@ function render() {
     var mesActual = null;
     lista.forEach(function (n) {
       var mes = fechaValida(n.fecha) ? n.fecha.slice(0, 7) : "sin";
-      if (mes !== mesActual) {   // título de cada mes: "Agosto 2026"
+      if (mes !== mesActual) {  
         mesActual = mes;
         cont.appendChild(el("h3", "grupo-mes", mes === "sin" ? "Sin fecha" : MESES_LARGO[+mes.slice(5, 7) - 1] + " " + mes.slice(0, 4)));
       }
       var t = el("article", "pcard noticia");
       var portada = el("div", "portada");
       portada.style.background = fondoDegradado(n.color);
-      if (urlSegura(n.img).indexOf("https:") === 0) {   // si luego pones una imagen, se muestra; si falla, queda el degradado
+      if (urlSegura(n.img).indexOf("https:") === 0) {   
         var img = el("img"); img.src = urlSegura(n.img); img.alt = ""; img.loading = "lazy"; img.referrerPolicy = "no-referrer";
         img.addEventListener("error", function () { img.remove(); });
         portada.appendChild(img);
       }
       portada.appendChild(el("span", "portada-etq", n.tema));
-      if (esNuevo(n.fecha)) portada.appendChild(pildoraNuevo());
+      if (esNuevo(n.fecha)) marcaNuevo(t);
       var cuerpo = el("div", "pcuerpo");
       cuerpo.appendChild(el("span", "meta", [n.fuente, fechaCorta(n.fecha)].filter(Boolean).join(" · ")));
       cuerpo.appendChild(el("h3", "", n.titulo));
@@ -741,7 +741,7 @@ function render() {
   vistas.noticias = { render: render };
 })();
 
-(function () {   // EVENTOS PRÓXIMOS
+(function () {   
   var sec = document.getElementById("vista-eventos");
   var cont = sec.querySelector("[data-contenido]"), res = sec.querySelector("[data-resumen]");
   var f = crearFiltro(sec, "Buscar evento, ciudad o ESPOL…", function () { render(); });
@@ -751,7 +751,7 @@ function render() {
 
   function textoBuscable(ev) {
     var partes = [ev.titulo, ev.desc, ev.tipo, ev.modalidad, "evento eventos"];
-    if (ev.origen === "ESPOL") partes.push("espol", ev.lugar);                              // la ciudad no cuenta: son los de la U
+    if (ev.origen === "ESPOL") partes.push("espol", ev.lugar);                              
     else partes.push("nacional nacionales ecuador", ev.ciudad, ev.lugar);
     return normalizar(partes.join(" "));
   }
@@ -767,11 +767,11 @@ function render() {
     return Math.round((aFecha(iso).getTime() - hoy.getTime()) / 86400000);
   }
   function proximos() {
-    return eventos.filter(function (e) { return fechaValida(e.fecha) ? diasHasta(e.fecha) >= 0 : e.abierto === true; })   // sin fecha: solo si es "abierto"
+    return eventos.filter(function (e) { return fechaValida(e.fecha) ? diasHasta(e.fecha) >= 0 : e.abierto === true; })   
                   .sort(function (a, b) {
                     var va = fechaValida(a.fecha), vb = fechaValida(b.fecha);
                     if (va && vb) return a.fecha < b.fecha ? -1 : (a.fecha > b.fecha ? 1 : 0);
-                    return va ? -1 : (vb ? 1 : 0);   // los que no tienen fecha van al final
+                    return va ? -1 : (vb ? 1 : 0);   
                   });
   }
 
@@ -791,9 +791,10 @@ function render() {
       var conFecha = fechaValida(ev.fecha);
       var d = conFecha ? diasHasta(ev.fecha) : 0, fecha = conFecha ? aFecha(ev.fecha) : null;
       var t = el("article", "pcard evento");
+      if (esNuevo(ev.subido)) marcaNuevo(t);
       var portada = el("div", "portada");
       portada.style.background = fondoDegradado(ev.color);
-      if (urlSegura(ev.img).indexOf("https:") === 0) {   // miniatura / afiche del evento; si falla, queda el degradado
+      if (urlSegura(ev.img).indexOf("https:") === 0) {   
         var img = el("img"); img.src = urlSegura(ev.img); img.alt = ""; img.loading = "lazy"; img.referrerPolicy = "no-referrer";
         img.addEventListener("error", function () { img.remove(); });
         portada.appendChild(img);
@@ -894,7 +895,7 @@ document.addEventListener("click", function (e) {
   if (destino.hidden) destino = document.getElementById("pie");
   destino.scrollIntoView({ behavior: "smooth", block: "center" });
 });
-function alCambiarRuta() { var n = nombreDesdeHash() || "materias"; if (n !== vistaActual) mostrarVista(n); }   // sin # = Materias
+function alCambiarRuta() { var n = nombreDesdeHash() || "materias"; if (n !== vistaActual) mostrarVista(n); }   
 window.addEventListener("popstate", alCambiarRuta);
 window.addEventListener("hashchange", alCambiarRuta);
 
