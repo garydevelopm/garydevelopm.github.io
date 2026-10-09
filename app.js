@@ -540,6 +540,7 @@ function crearVistaRecursos(idSeccion, base, placeholder, vacio, fuenteVideos, c
 crearVistaRecursos("materias", recursos.filter(function (r) { return r.tipo === "PDF"; }),
   "Buscar materia o guía…", "Todavía no hay guías en esta materia.", videos, "gm_tema");
 crearVistaRecursos("drive", recursos.filter(function (r) { return r.tipo === "Drive"; }),
+  "Buscar materia o carpeta…", "Todavía no hay carpetas en esta materia.", videos);
 function crearVistaVideos(idSeccion, lista, placeholder) {
   var validos = lista.filter(function (v) { return idVideoOk(v.id); });
   var sec = document.getElementById("vista-" + idSeccion);
@@ -575,9 +576,7 @@ crearVistaRecursos("adm-materias", admisiones.filter(function (r) { return r.tip
   "Buscar materia del pre…", "Todavía no hay guías en esta materia.", videosAdm);
 crearVistaRecursos("adm-drive", admisiones.filter(function (r) { return r.tipo === "Drive"; }),
   "Buscar materia del pre…", "Todavía no hay carpetas en esta materia.", videosAdm);
-crearVistaVideos("adm-videos", videosAdm, "Buscar video o materia del pre…");               
-  "Buscar materia o carpeta…", "Todavía no hay carpetas en esta materia.", videos);
-
+crearVistaVideos("adm-videos", videosAdm, "Buscar video o materia del pre…");     
 
 (function () {   
   var sec = document.getElementById("vista-videos");
@@ -590,7 +589,7 @@ crearVistaVideos("adm-videos", videosAdm, "Buscar video o materia del pre…");
   var f = crearFiltro(sec, "Buscar video, canal o materia…", function () { render(); });
   f.poner(unicos(videos.filter(function (v) { return idVideoOk(v.id); }), "tema"));
 
-  function mezclar(lista) {   // uno de cada materia, por turnos
+  function mezclar(lista) {   
     var grupos = {};
     lista.forEach(function (v) { (grupos[v.tema] = grupos[v.tema] || []).push(v); });
     var listas = Object.keys(grupos).map(function (t) { return grupos[t]; });
