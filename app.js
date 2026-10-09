@@ -176,7 +176,7 @@ var linkInstagram = "https://www.instagram.com/garydevelop";
 var videos = [
     { titulo: "Python desde cero", canal: "Piogram", tema: "Fp", id: "DJdBGf7uzg4" },
     { titulo: "Fundamentos de programacion", canal: "Robespierre Triviño", tema: "Fp", id: "HlkA0yc2uKo" },
-     
+];
 var admisiones = [
 ];
 var videosAdm = [
