@@ -337,6 +337,7 @@ footer { padding-block: 36px 40px; color: var(--muted); font-size: .85rem; }
 
 .menu-btn[aria-current="page"], .menu.activo > .menu-btn { color: var(--fg); }
 #caja-admisiones { min-width: 280px; }
+#caja-extra { min-width: 280px; }
 .sello-adm {
   display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px; padding: 6px 14px; border-radius: 999px;
   font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent);
