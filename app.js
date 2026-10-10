@@ -176,6 +176,21 @@ var recursos = [
     tipo: "Drive", 
     url: "https://drive.google.com/drive/folders/1gHLcoW2mDaBgEn_G2dhWFyDL9R8e05Zq?usp=sharing", 
     fecha: "2026-10-10" },
+  { titulo: "Guía de estudio para Fundamentos de Electricidad y Sistemas Digitales", 
+    desc: "Guía de estudio completa de Electricidad y Sistemas Digitales. Resumen de toda la materia, formularios, tips y conceptos clave.", 
+    tema: "Electricidad y Sistemas Digitales", 
+    tipo: "PDF", 
+    guia: true, 
+    url: "pdfs/Guia_Estudio_Electricidad_Sistemas_Digitales.pdf", 
+    fecha: "2026-10-10" },
+  { titulo: "Guía de estudio para Dibujo I.Resumen de toda la materia, formularios, tips y conceptos clave.", 
+    desc: "Guía de estudio completa de Dibujo I", 
+    tema: "Dibujo I", 
+    tipo: "PDF", 
+    guia: true, 
+    url: "pdfs/Guia_Estudio_Dibujo_I.pdf", 
+    fecha: "2026-10-10" 
+   },
 ];
 var admisiones = [
    { titulo: "Física para Ingeniería", 
