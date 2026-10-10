@@ -222,6 +222,26 @@ var admisiones = [
      url: "https://drive.google.com/drive/folders/1JCoaUraqv8bQfT3AXZzaxJmkrD5J2dvJ?usp=sharing" },
 ];
 var videosAdm = [
+  { titulo: "Matemáticas (Pre-Espol) [Completo]", 
+    canal: "Profe Andy Ayluardo", 
+    tema: "matematicas ingenieria", "matematica basica", 
+    id: "vL8I20F_754", 
+    fecha: "2026-10-09" },
+  { titulo: "Fisica Pre Espol", 
+    canal: "Jai Dasix", 
+    tema: "fisica ingenieria", 
+    id: "MKmw7FrIwYw", 
+    fecha: "2026-10-09" },
+  { titulo: "Física para entrar a ESPO", 
+    canal: "Mayken Espinoza", 
+    tema: "fisica ingenieria", 
+    id: "raQnBXUU9pI", 
+    fecha: "2026-10-09" },
+  { titulo: "FÍSICA PRE-POLITÉCNICA", 
+    canal: "JOSANVIL", 
+    tema: "fisica ingenieria", 
+    id: "v3ZjLVYIL7g", 
+    fecha: "2026-10-09" },
 ];
 var linkInstagram = "https://www.instagram.com/garydevelop";
 
