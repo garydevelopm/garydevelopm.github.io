@@ -89,7 +89,7 @@ var recursos = [
     tema: "Poo", 
     tipo: "PDF", 
     guia: true, 
-    url: "pdfs/Guia_Estudio_POO.pdf" 
+    url: "pdfs/Guia_Estudio_POO_1.pdf" 
   },
   {
     titulo: "Guia de estudio para Quimica Organica I",
