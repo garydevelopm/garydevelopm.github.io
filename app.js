@@ -170,6 +170,12 @@ var recursos = [
     guia: true,
     url: "pdfs/Guia_Estudio_Mecanica_de_Solidos.pdf"
   },
+  { titulo: "drive de Edal", 
+    desc: "examenes y jercicios de toda la materia", 
+    tema: "EDAL", 
+    tipo: "Drive", 
+    url: "https://drive.google.com/drive/folders/1gHLcoW2mDaBgEn_G2dhWFyDL9R8e05Zq?usp=sharing", 
+    fecha: "2026-10-10" },
 ];
 var admisiones = [
    { titulo: "Física para Ingeniería", 
