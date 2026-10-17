@@ -310,6 +310,13 @@ var videosAdm = [
     tema: "fisica ingenieria", 
     id: "v3ZjLVYIL7g", 
     fecha: "2026-10-09" },
+  { titulo: "Guía de estudio para Morfofisiología Humana I", 
+    desc: "Terminología médica, planos y cavidades, sistema osteomuscular, sistema nervioso y endocrino, aparato cardiovascular, eritropoyesis y presión arterial, con ejemplos resueltos.", 
+    tema: "Morfofisiología Humana I", 
+    tipo: "PDF", 
+    guia: true, 
+    url: "pdfs/Guia_Estudio_Morfofisiologia_Humana_I.pdf", 
+    fecha: "2026-10-17" },
 ];
 var linkInstagram = "https://www.instagram.com/garydevelop";
 
