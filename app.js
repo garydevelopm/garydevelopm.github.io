@@ -85,7 +85,7 @@ var recursos = [
   },
   { 
     titulo: "Guia de estudio para programacion orientada a obejetos/poo", 
-    desc: "Guía de estudio completa de Poo con Java. Resumen de toda la materia, ejemplos de código, tips y conceptos clave.", 
+    desc: "Guía de estudio completa de Poo. Resumen de toda la materia, ejemplos de código, tips y conceptos clave.", 
     tema: "Poo", 
     tipo: "PDF", 
     guia: true, 
