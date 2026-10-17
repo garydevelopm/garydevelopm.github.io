@@ -217,6 +217,22 @@ var recursos = [
     url: "pdfs/Guia_Estudio_Quimica_General.pdf", 
     fecha: "2026-10-16" 
   },
+  { titulo: "Guía de estudio para Mecánica de Fluidos", 
+    desc: "Guía de estudio para Mecanica de Fluidos.Resumen de toda la materia, formularios, tips y conceptos clave.",
+    tema: "Mecánica de Fluidos", 
+    tipo: "PDF", 
+    guia: true, 
+    url: "pdfs/Guia_Estudio_Mecanica_de_Fluidos.pdf", 
+    fecha: "2026-10-17" 
+  },
+  { titulo: "Guía de estudio para Física: Termodinámica y Electrónica", 
+    desc: "Temperatura, gases ideales, calor, leyes de la termodinámica, electrostática, circuitos de corriente continua y alterna y circuitos digitales, con ejemplos resueltos.", 
+    tema: "Termodinámica y Electrónica", 
+    tipo: "PDF", 
+    guia: true, 
+    url: "pdfs/Guia_Estudio_Fisica_Termodinamica_Electronica.pdf", 
+    fecha: "2026-10-17" 
+  },
 ];
 var admisiones = [
    { titulo: "Física para Ingeniería", 
