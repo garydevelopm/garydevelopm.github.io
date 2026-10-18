@@ -226,13 +226,27 @@ var recursos = [
     fecha: "2026-10-17" 
   },
   { titulo: "Guía de estudio para Física: Termodinámica y Electrónica", 
-    desc: "Temperatura, gases ideales, calor, leyes de la termodinámica, electrostática, circuitos de corriente continua y alterna y circuitos digitales, con ejemplos resueltos.", 
+    desc: "Guía de estudio para Termodinamica y Electronica.Resumen de toda la materia, formularios, tips y conceptos clave.",
     tema: "Termodinámica y Electrónica", 
     tipo: "PDF", 
     guia: true, 
     url: "pdfs/Guia_Estudio_Fisica_Termodinamica_Electronica.pdf", 
     fecha: "2026-10-17" 
   },
+  { titulo: "Guía de estudio para Estática", 
+    desc: "Guía de estudio para Estatica de toda la materia, formularios, tips y conceptos clave.",
+    tema: "Estática", 
+    tipo: "PDF", 
+    guia: true, 
+    url: "pdfs/Guia_Estudio_Estatica.pdf", 
+   fecha: "2026-10-17" },
+  { titulo: "Guía de estudio para Matemáticas Superiores", 
+    desc: "Guía de estudio para Matematicas Superiores.Resumen de toda la materia, formularios, tips y conceptos clave.",
+    tema: "Matemáticas Superiores", 
+    tipo: "PDF", 
+    guia: true, 
+    url: "pdfs/Guia_Estudio_Matematicas_Superiores.pdf", 
+    fecha: "2026-10-17" },
 ];
 var admisiones = [
    { titulo: "Física para Ingeniería", 
